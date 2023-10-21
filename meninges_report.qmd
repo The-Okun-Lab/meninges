@@ -1,0 +1,162 @@
+---
+title: "Meninges Report"
+format: html
+editor: visual
+---
+
+```{r}
+#| label: setup
+#| include: FALSE
+library(ggplot2)
+library(png)
+library(grid)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE,
+                      echo = FALSE, fig.path = "results/plots/")
+```
+
+```{r}
+#| label: data
+figure <- readPNG("data/opac_meninges.png")
+df <- read.csv("data/structs.csv", sep = ";", dec = ",")
+
+df$Phenotype <- as.factor(df$Phenotype)
+
+df$X <- df$Length * cos(df$Angle * pi / 180)
+df$Y <- df$Length * sin(df$Angle * pi / 180)
+```
+
+## Location of structures
+
+```{r}
+#| label: params
+my_alpha <- 2/3
+my_label_threshold <- 100
+my_label_size <- 2
+my_label_colour <- "black"
+```
+
+```{r}
+#| label: fig-loc
+#| fig-cap: Scatter plot of tertiary limphatic structures around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype and labeled by sample.
+#| fig-width: 6
+#| fig-asp: 1
+ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size)) +
+  lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
+  annotation_custom(rasterGrob(figure, 
+                               width = unit(1,"npc"), 
+                               height = unit(1,"npc")), 
+                               -Inf, Inf, -Inf, Inf) +
+  geom_point(alpha = my_alpha) +
+  geom_text(data = subset(df, Size > my_label_threshold), aes(label = Label),
+            size = my_label_size, colour = my_label_colour) +
+  labs(x = "X in mm", y = "Y in mm") +
+  theme_classic()
+```
+
+## Distribution of structures
+
+```{r}
+my_low <- "white"
+my_high <- "red"
+```
+
+```{r}
+#| label: fig-dist
+#| fig-cap: 2d Binned plot of tertiary limphatic structures around meninges. Colour indicates number of structures found in each hexagonal cell.
+#| fig-width: 6
+#| fig-asp: 1
+ggplot(df, aes(x = X, y = Y)) +
+  lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
+  annotation_custom(rasterGrob(figure, 
+                               width = unit(1,"npc"), 
+                               height = unit(1,"npc")), 
+                               -Inf, Inf, -Inf, Inf) +  geom_hex() +
+  scale_fill_gradient2(low = my_low, high = my_high) +
+  labs(x = "X in mm", y = "Y in mm") +
+  theme_classic()
+```
+
+### Distribution by phenotype
+
+```{r}
+#| label: fig-dist-pheno
+#| fig-cap: 2d Binned plot of tertiary limphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates number of structures found in each hexagonal cell.
+#| fig-width: 10
+#| fig-asp: 0.5
+ggplot(df, aes(x = X, y = Y)) +
+  lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
+  annotation_custom(rasterGrob(figure, 
+                               width = unit(1,"npc"), 
+                               height = unit(1,"npc")), 
+                               -Inf, Inf, -Inf, Inf) +  geom_hex() +
+  scale_fill_gradient2(low = my_low, high = my_high) +
+  labs(x = "X in mm", y = "Y in mm", fill = "Count") +
+  facet_wrap(. ~ Phenotype) +
+  theme_classic()
+```
+
+### Density of structures
+
+@fig-dens shows the density of TLSs.
+
+```{r}
+my_palette <- 8
+my_dir <- 1
+```
+
+```{r}
+#| label: fig-dens
+#| fig-cap: Density plot of tertiary limphatic structures around meninges. Colour indicates the fraction of structures found in each pixel.
+#| fig-width: 6
+#| fig-asp: 1
+ggplot(df, aes(x = X, y = Y)) +
+  lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
+  stat_density2d(aes(fill = ..density..), geom = "raster", contour = FALSE) +
+  annotation_custom(rasterGrob(figure, 
+                               width = unit(1,"npc"), 
+                               height = unit(1,"npc")), 
+                               -Inf, Inf, -Inf, Inf) +
+  scale_fill_distiller(palette = my_palette, direction = my_dir) +
+  labs(x = "X in mm", y = "Y in mm", fill = "Density") +
+  theme_bw()
+```
+
+```{r}
+#| label: fig-loc-dens
+#| fig-cap: Density plot of tertiary limphatic structures around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel.
+#| fig-width: 6
+#| fig-asp: 1
+ggplot(df, aes(x = X, y = Y)) +
+  lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
+  stat_density2d(aes(fill = ..density..), geom = "raster", contour = FALSE) +
+  annotation_custom(rasterGrob(figure, 
+                               width = unit(1,"npc"), 
+                               height = unit(1,"npc")), 
+                               -Inf, Inf, -Inf, Inf) +
+  geom_point(aes(colour = Phenotype, size = Size), alpha = my_alpha) +
+  #  geom_text(data = subset(df, Size > my_label_threshold), aes(label = Label),
+  #            size = my_label_size, colour = my_label_colour) +
+  scale_fill_distiller(palette = 6, direction = my_dir) +
+  labs(x = "X in mm", y = "Y in mm", fill = "Density") +
+  theme_bw()
+```
+
+### Density by phenotype
+
+```{r}
+#| label: fig-dens-pheno
+#| fig-cap: Density plot of tertiary limphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel.
+#| fig-width: 10
+#| fig-asp: 0.5
+ggplot(df, aes(x = X, y = Y)) +
+  lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
+  stat_density2d(aes(fill = ..density..), geom = "raster", contour = FALSE) +
+  annotation_custom(rasterGrob(figure, 
+                               width = unit(1,"npc"), 
+                               height = unit(1,"npc")), 
+                               -Inf, Inf, -Inf, Inf) +
+  scale_fill_distiller(palette = my_palette, direction = my_dir) +
+  labs(x = "X in mm", y = "Y in mm", fill = "Density") +
+  facet_wrap(. ~ Phenotype) +
+  theme_bw()
+```
