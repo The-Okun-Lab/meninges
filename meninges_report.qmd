@@ -2,6 +2,7 @@
 title: "Meninges Report"
 format: html
 editor: visual
+toc: true
 ---
 
 ```{r}
@@ -14,15 +15,21 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE,
                       echo = FALSE, fig.path = "results/plots/")
 ```
 
+## Overview
+
+This report is designed to visualise the distribution of Tertiary Lymphatic Structures (TLSs) in mice meninges in multiple ways that provide insight to different aspects of the data.
+
+**Action points** for further analysis:
+
+-   Ask Amit's opinion about current results and discuss next steps
+-   Ask Amit how angle is calculated and implement angle computation in this script, so that new images can be easily integrated in this analysis
+
 ```{r}
 #| label: data
 figure <- readPNG("data/opac_meninges.png")
-df <- read.csv("data/structs.csv", sep = ";", dec = ",")
+df <- read.csv2("data/processed_data.csv")
 
 df$Phenotype <- as.factor(df$Phenotype)
-
-df$X <- df$Length * cos(df$Angle * pi / 180)
-df$Y <- df$Length * sin(df$Angle * pi / 180)
 ```
 
 ## Location of structures
@@ -47,7 +54,7 @@ ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size)) +
                                height = unit(1,"npc")), 
                                -Inf, Inf, -Inf, Inf) +
   geom_point(alpha = my_alpha) +
-  geom_text(data = subset(df, Size > my_label_threshold), aes(label = Label),
+  geom_text(data = subset(df, Size > my_label_threshold), aes(label = TissueID),
             size = my_label_size, colour = my_label_colour) +
   labs(x = "X in mm", y = "Y in mm") +
   theme_classic()
@@ -95,7 +102,7 @@ ggplot(df, aes(x = X, y = Y)) +
   theme_classic()
 ```
 
-### Density of structures
+## Density of structures
 
 @fig-dens shows the density of TLSs.
 
