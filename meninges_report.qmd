@@ -27,7 +27,7 @@ This report is designed to visualise the distribution of Tertiary Lymphatic Stru
 ```{r}
 #| label: data
 figure <- readPNG("data/opac_meninges.png")
-df <- read.csv2("data/processed_data.csv")
+df <- read.csv("data/processed_data.csv")
 
 df$Phenotype <- as.factor(df$Phenotype)
 ```

@@ -1,7 +1,7 @@
 library(dplyr)
 
-structures <- read.csv("data/structures.csv", sep = ";", dec = ",")
-angles <- read.csv("data/angles.csv", sep = ";", dec = ",")
+structures <- read.csv("data/structures.csv")
+angles <- read.csv("data/angles.csv")
 
 df <- structures %>%
   left_join(angles) %>%
@@ -18,4 +18,4 @@ df <- df %>%
          Y = Length * sin(Angle * pi / 180)) %>%
   select(-starts_with("Offset"))
 
-write.csv2(df, file = "data/processed_data.csv", row.names = FALSE)
+write.csv(df, file = "data/processed_data.csv", row.names = FALSE)
