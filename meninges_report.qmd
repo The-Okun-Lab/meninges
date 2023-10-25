@@ -9,6 +9,7 @@ toc: true
 #| label: setup
 #| include: FALSE
 library(ggplot2)
+library(dplyr)
 library(png)
 library(grid)
 knitr::opts_chunk$set(warning = FALSE, message = FALSE,
@@ -21,15 +22,29 @@ This report is designed to visualise the distribution of Tertiary Lymphatic Stru
 
 **Action points** for further analysis:
 
--   Ask Amit's opinion about current results and discuss next steps
--   Ask Amit how angle is calculated and implement angle computation in this script, so that new images can be easily integrated in this analysis
+-   make analysis comparative between groups
 
 ```{r}
 #| label: data
 figure <- readPNG("data/opac_meninges.png")
 df <- read.csv("data/processed_data.csv")
 
-df$Phenotype <- as.factor(df$Phenotype)
+df <- df %>%
+  mutate(Phenotype = as.factor(Phenotype),
+         Sex.Age = interaction(Sex, Age, sep = "."))
+```
+
+## Explorative statistics
+
+```{r}
+df %>%
+  group_by(Sex, Age, Strain) %>%
+  summarise(Count = n(),
+            MeanSize = round(mean(Size), 1),
+            MeanLength = round(mean(Length) / 100, 1),
+            `Phenotype (1-2-3)` = paste(sum(Phenotype == 1), sum(Phenotype == 2), sum(Phenotype == 3), sep = "-"),
+            `Sinus (0-90-180)` = paste(sum(Sinus == 0), sum(Sinus == 90), sum(Sinus == 180), sep = "-")) %>%
+  knitr::kable()
 ```
 
 ## Location of structures
@@ -45,9 +60,9 @@ my_label_colour <- "black"
 ```{r}
 #| label: fig-loc
 #| fig-cap: Scatter plot of tertiary limphatic structures around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype and labeled by sample.
-#| fig-width: 6
+#| fig-width: 10
 #| fig-asp: 1
-ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size)) +
+ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size, shape = Strain)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
   annotation_custom(rasterGrob(figure, 
                                width = unit(1,"npc"), 
@@ -57,6 +72,7 @@ ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size)) +
   geom_text(data = subset(df, Size > my_label_threshold), aes(label = TissueID),
             size = my_label_size, colour = my_label_colour) +
   labs(x = "X in mm", y = "Y in mm") +
+  facet_grid(Age ~ Sex) +
   theme_classic()
 ```
 
@@ -70,7 +86,7 @@ my_high <- "red"
 ```{r}
 #| label: fig-dist
 #| fig-cap: 2d Binned plot of tertiary limphatic structures around meninges. Colour indicates number of structures found in each hexagonal cell.
-#| fig-width: 6
+#| fig-width: 10
 #| fig-asp: 1
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
@@ -80,6 +96,7 @@ ggplot(df, aes(x = X, y = Y)) +
                                -Inf, Inf, -Inf, Inf) +  geom_hex() +
   scale_fill_gradient2(low = my_low, high = my_high) +
   labs(x = "X in mm", y = "Y in mm") +
+  facet_grid(Age ~ Sex) +
   theme_classic()
 ```
 
@@ -89,7 +106,7 @@ ggplot(df, aes(x = X, y = Y)) +
 #| label: fig-dist-pheno
 #| fig-cap: 2d Binned plot of tertiary limphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates number of structures found in each hexagonal cell.
 #| fig-width: 10
-#| fig-asp: 0.5
+#| fig-asp: 1
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
   annotation_custom(rasterGrob(figure, 
@@ -98,7 +115,7 @@ ggplot(df, aes(x = X, y = Y)) +
                                -Inf, Inf, -Inf, Inf) +  geom_hex() +
   scale_fill_gradient2(low = my_low, high = my_high) +
   labs(x = "X in mm", y = "Y in mm", fill = "Count") +
-  facet_wrap(. ~ Phenotype) +
+  facet_grid(Sex.Age ~ Phenotype) +
   theme_classic()
 ```
 
@@ -114,7 +131,7 @@ my_dir <- 1
 ```{r}
 #| label: fig-dens
 #| fig-cap: Density plot of tertiary limphatic structures around meninges. Colour indicates the fraction of structures found in each pixel.
-#| fig-width: 6
+#| fig-width: 10
 #| fig-asp: 1
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
@@ -125,13 +142,14 @@ ggplot(df, aes(x = X, y = Y)) +
                                -Inf, Inf, -Inf, Inf) +
   scale_fill_distiller(palette = my_palette, direction = my_dir) +
   labs(x = "X in mm", y = "Y in mm", fill = "Density") +
+  facet_grid(Age ~ Sex) +
   theme_bw()
 ```
 
 ```{r}
 #| label: fig-loc-dens
 #| fig-cap: Density plot of tertiary limphatic structures around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel.
-#| fig-width: 6
+#| fig-width: 10
 #| fig-asp: 1
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
@@ -140,11 +158,10 @@ ggplot(df, aes(x = X, y = Y)) +
                                width = unit(1,"npc"), 
                                height = unit(1,"npc")), 
                                -Inf, Inf, -Inf, Inf) +
-  geom_point(aes(colour = Phenotype, size = Size), alpha = my_alpha) +
-  #  geom_text(data = subset(df, Size > my_label_threshold), aes(label = Label),
-  #            size = my_label_size, colour = my_label_colour) +
+  geom_point(aes(colour = Phenotype, size = Size, shape = Strain), alpha = my_alpha) +
   scale_fill_distiller(palette = 6, direction = my_dir) +
   labs(x = "X in mm", y = "Y in mm", fill = "Density") +
+  facet_grid(Age ~ Sex) +
   theme_bw()
 ```
 
@@ -154,7 +171,7 @@ ggplot(df, aes(x = X, y = Y)) +
 #| label: fig-dens-pheno
 #| fig-cap: Density plot of tertiary limphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel.
 #| fig-width: 10
-#| fig-asp: 0.5
+#| fig-asp: 1
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
   stat_density2d(aes(fill = ..density..), geom = "raster", contour = FALSE) +
@@ -164,6 +181,6 @@ ggplot(df, aes(x = X, y = Y)) +
                                -Inf, Inf, -Inf, Inf) +
   scale_fill_distiller(palette = my_palette, direction = my_dir) +
   labs(x = "X in mm", y = "Y in mm", fill = "Density") +
-  facet_wrap(. ~ Phenotype) +
+  facet_grid(Sex.Age ~ Phenotype) +
   theme_bw()
 ```
