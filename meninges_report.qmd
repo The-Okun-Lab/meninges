@@ -1,6 +1,6 @@
 ---
 title: "Meninges Report"
-format: html
+format: md
 editor: visual
 toc: true
 ---
@@ -20,10 +20,6 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE,
 
 This report is designed to visualise the distribution of Tertiary Lymphatic Structures (TLSs) in mice meninges in multiple ways that provide insight to different aspects of the data.
 
-**Action points** for further analysis:
-
--   make analysis comparative between groups
-
 ```{r}
 #| label: data
 figure <- readPNG("data/opac_meninges.png")
@@ -34,12 +30,20 @@ df <- df %>%
          Sex.Age = interaction(Sex, Age, sep = "."))
 ```
 
-## Explorative statistics
+## Exploratory statistics
+
+The current analysis includes data on `r nrow(df)` lymphatic structures from
+`r n_distinct(df$TissueID)` mice, belonging to `r n_distinct(df$Strain)` strains,
+`r n_distinct(df$Age)` age categories and `r n_distinct(df$Sex)` genders, for a
+total of `r n_distinct(interaction(df$Strain, df$Age, df$Sex))` groups (@tbl-stats).
 
 ```{r}
+#| label: tbl-stats
+#| tbl-cap: Basic statistics on the TLSs from mice meninges. Size and length are measured in mm, whereas phenotype and sinus location are reported in terms of the number of structures per each phenotype or sinus location, respectively.
 df %>%
   group_by(Sex, Age, Strain) %>%
-  summarise(Count = n(),
+  summarise(Mice = n_distinct(TissueID),
+            Structures = n(),
             MeanSize = round(mean(Size), 1),
             MeanLength = round(mean(Length) / 100, 1),
             `Phenotype (1-2-3)` = paste(sum(Phenotype == 1), sum(Phenotype == 2), sum(Phenotype == 3), sep = "-"),
