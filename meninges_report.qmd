@@ -28,6 +28,7 @@ df <- read.csv("data/processed_data.csv")
 
 df <- df %>%
   mutate(Phenotype = as.factor(Phenotype),
+         Age = factor(Age, c("young", "middle", "old")),
          Sex.Age = interaction(Sex, Age, sep = "."),
          Length = Length / 100)
 ```
@@ -94,7 +95,7 @@ ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size, shape = Strain)) +
   geom_text(data = subset(df, Size > my_label_threshold), aes(label = TissueID),
             size = my_label_size, colour = my_label_colour) +
   labs(x = "X in mm", y = "Y in mm") +
-  facet_grid(Age ~ Sex) +
+  facet_grid(Sex ~ Age) +
   theme_classic()
 ```
 
@@ -118,7 +119,7 @@ ggplot(df, aes(x = X, y = Y)) +
                                -Inf, Inf, -Inf, Inf) +  geom_hex() +
   scale_fill_gradient2(low = my_low, high = my_high) +
   labs(x = "X in mm", y = "Y in mm") +
-  facet_grid(Age ~ Sex) +
+  facet_grid(Sex ~ Age) +
   theme_classic()
 ```
 
@@ -183,7 +184,7 @@ ggplot(df, aes(x = X, y = Y)) +
   geom_point(aes(colour = Phenotype, size = Size, shape = Strain), alpha = my_alpha) +
   scale_fill_distiller(palette = 6, direction = my_dir) +
   labs(x = "X in mm", y = "Y in mm", fill = "Density") +
-  facet_grid(Age ~ Sex) +
+  facet_grid(Sex ~ Age) +
   theme_bw()
 ```
 

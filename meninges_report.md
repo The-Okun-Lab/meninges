@@ -16,9 +16,9 @@ provide insight to different aspects of the data.
 
 ## Exploratory statistics
 
-The current analysis includes data on 165 lymphatic structures from 16
-mice, belonging to 2 strains, 2 age categories and 2 genders, for a
-total of 4 groups ([Table 1](#tbl-stats)).
+The current analysis includes data on 453 lymphatic structures from 31
+mice, belonging to 2 strains, 3 age categories and 2 genders, for a
+total of 5 groups ([Table 1](#tbl-stats)).
 
 <table>
 <caption>Table 1: Basic statistics on the TLSs from mice meninges. Size
@@ -27,7 +27,7 @@ reported in terms of the number of structures per each phenotype or
 sinus location, respectively.</caption>
 <colgroup>
 <col style="width: 4%" />
-<col style="width: 6%" />
+<col style="width: 7%" />
 <col style="width: 7%" />
 <col style="width: 5%" />
 <col style="width: 12%" />
@@ -52,47 +52,58 @@ sinus location, respectively.</caption>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">F</td>
-<td style="text-align: left;">old</td>
+<td style="text-align: left;">young</td>
 <td style="text-align: left;">APP</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">113.0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">82.9</td>
 <td style="text-align: right;">0.4</td>
-<td style="text-align: left;">48-7-1</td>
-<td style="text-align: left;">4-25-27</td>
+<td style="text-align: left;">77-1-0</td>
+<td style="text-align: left;">23-32-23</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">F</td>
-<td style="text-align: left;">young</td>
-<td style="text-align: left;">C57</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">81.8</td>
-<td style="text-align: right;">0.4</td>
-<td style="text-align: left;">19-0-0</td>
-<td style="text-align: left;">5-6-8</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">M</td>
 <td style="text-align: left;">young</td>
 <td style="text-align: left;">APP</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">80</td>
-<td style="text-align: right;">105.0</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">99.0</td>
 <td style="text-align: right;">0.5</td>
-<td style="text-align: left;">80-0-0</td>
-<td style="text-align: left;">15-47-18</td>
+<td style="text-align: left;">86-1-0</td>
+<td style="text-align: left;">16-52-19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">middle</td>
+<td style="text-align: left;">APP</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">145.1</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: left;">58-8-4</td>
+<td style="text-align: left;">18-40-12</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">young</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: left;">APP</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">151.4</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: left;">31-6-8</td>
+<td style="text-align: left;">4-34-7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">old</td>
 <td style="text-align: left;">C57</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">59.6</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: left;">10-0-0</td>
-<td style="text-align: left;">6-4-0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">173</td>
+<td style="text-align: right;">188.6</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: left;">136-28-9</td>
+<td style="text-align: left;">42-103-28</td>
 </tr>
 </tbody>
 </table>
