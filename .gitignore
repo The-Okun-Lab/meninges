@@ -5,3 +5,4 @@ tmp*
 .Rhistory
 meninges_report.html
 meninges_report_files
+*.html
