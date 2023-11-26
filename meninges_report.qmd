@@ -27,11 +27,14 @@ In this report we profile the meninges of `r params$str` mice in terms of Tertia
 figure <- readPNG("data/opac_meninges.png")
 df <- read.csv("data/processed_data.csv")
 
+levs <- c("F.young", "F.middle", "F.old",
+          "M.young", "M.middle", "M.old")
+
 df <- df %>%
   filter(Strain == params$str) %>%
   mutate(Phenotype = as.factor(Phenotype),
          Age = factor(Age, c("young", "middle", "old")),
-         Sex.Age = interaction(Sex, Age, sep = "."),
+         Sex.Age = factor(interaction(Sex, Age, sep = "."), levs),
          Length = Length / 100)
 ```
 
@@ -160,7 +163,8 @@ my_dir <- 1
 #| fig-asp: 1
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
-  stat_density2d(aes(fill = ..density..), geom = "raster", contour = FALSE) +
+  stat_density2d(aes(fill = after_stat(ndensity)),
+                 geom = "raster", contour = FALSE) +
   annotation_custom(rasterGrob(figure, 
                                width = unit(1,"npc"), 
                                height = unit(1,"npc")), 
@@ -178,7 +182,8 @@ ggplot(df, aes(x = X, y = Y)) +
 #| fig-asp: 1
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
-  stat_density2d(aes(fill = ..density..), geom = "raster", contour = FALSE) +
+  stat_density2d(aes(fill = after_stat(ndensity)),
+                 geom = "raster", contour = FALSE) +
   annotation_custom(rasterGrob(figure, 
                                width = unit(1,"npc"), 
                                height = unit(1,"npc")), 
@@ -199,7 +204,8 @@ ggplot(df, aes(x = X, y = Y)) +
 #| fig-asp: 1
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
-  stat_density2d(aes(fill = ..density..), geom = "raster", contour = FALSE) +
+  stat_density2d(aes(fill = after_stat(ndensity)),
+                 geom = "raster", contour = FALSE) +
   annotation_custom(rasterGrob(figure, 
                                width = unit(1,"npc"), 
                                height = unit(1,"npc")), 
