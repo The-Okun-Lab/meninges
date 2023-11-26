@@ -88,7 +88,7 @@ my_label_colour <- "black"
 ```{r}
 #| label: fig-loc
 #| fig-cap: Scatter plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype and labeled by sample. Each panel corresponds to a mice group based on sex and age category.
-#| fig-width: 10
+#| fig-width: !expr 3.5 * n_distinct(df$Age)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
@@ -115,7 +115,7 @@ my_high <- "red"
 #| label: fig-dist
 #| fig-cap: 2d Binned plot of tertiary limphatic structures around meninges. Colour indicates number of structures found in each hexagonal cell. Each panel corresponds to a mice group based on sex and age category.
 #| fig-width: !expr 3.5 * n_distinct(df$Age)
-#| fig-height: !expr 4 * n_distinct(df$Sex)
+#| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
   annotation_custom(rasterGrob(figure, 
@@ -159,8 +159,8 @@ my_dir <- 1
 ```{r}
 #| label: fig-dens
 #| fig-cap: Density plot of TLSs around meninges. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category.
-#| fig-width: 10
-#| fig-height: !expr 4 * n_distinct(df$Sex)
+#| fig-width: !expr 3.5 * n_distinct(df$Age)
+#| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-5000, 5000), y = c(-2500, 10100)) +
   stat_density2d(aes(fill = after_stat(ndensity)),

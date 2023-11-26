@@ -2,7 +2,6 @@ library(quarto)
 library(rmarkdown)
 
 strains <- c("APP", "C57")
-strains <- c("APP")
 
 for (strain in strains) {
   
