@@ -10,15 +10,16 @@
 
 ## Overview
 
-This report is designed to visualise the distribution of Tertiary
-Lymphatic Structures (TLSs) in mice meninges in multiple ways that
-provide insight to different aspects of the data.
+In this report we profile the meninges of APP mice in terms of Tertiary
+Lymphatic Structures (TLSs). The following chapters provide insight to
+different aspects of the TLSs, such as their location, distribution and
+density.
 
 ## Exploratory statistics
 
-The current analysis includes data on 280 lymphatic structures from 23
+The current analysis includes data on 443 lymphatic structures from 34
 mice, belonging to 1 strains, 3 age categories and 2 genders, for a
-total of 4 groups ([Table 1](#tbl-stats)).
+total of 6 groups ([Table 1](#tbl-stats)).
 
 <table>
 <caption>Table 1: Basic statistics on the TLSs from mice meninges. Size
@@ -57,6 +58,26 @@ sinus location, respectively.</caption>
 <td style="text-align: right;">0.4</td>
 <td style="text-align: left;">77-1-0</td>
 <td style="text-align: left;">23-32-23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">middle</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">201.7</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: left;">47-7-0</td>
+<td style="text-align: left;">13-35-6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">142.8</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: left;">92-13-4</td>
+<td style="text-align: left;">5-63-41</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M</td>

@@ -1,6 +1,5 @@
 ---
 title: "Meninges Report"
-format: html
 params:
     str: "APP"
 editor: visual
