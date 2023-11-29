@@ -27,9 +27,7 @@ In this report we profile the meninges of `r params$str` mice in terms of Tertia
 figure <- readPNG("data/opac_meninges.png")
 df <- read.csv("data/processed_data.csv")
 
-meninges_height <- 10100
 outlier_threshold <- 13000
-
 levs <- c("F.young", "F.middle", "F.old",
           "M.young", "M.middle", "M.old")
 
@@ -39,6 +37,18 @@ df <- df %>%
          Age = factor(Age, c("young", "middle", "old")),
          Sex.Age = factor(interaction(Sex, Age, sep = "."), levs),
          Length = Length / 100)
+```
+
+```{r}
+#| label: constants
+asp_ratio <- 0.92
+meninges_height <- 10100
+meninges_bottom <- meninges_height / 4
+meninges_width <- (meninges_height + meninges_bottom) * asp_ratio / 2
+
+upper_lim <- max(meninges_height, max(df$Y[df$Y < outlier_threshold]))
+side_lim <- max(meninges_width, max(abs(df$X)))
+lower_lim <- min(-meninges_bottom, min(df$Y))
 ```
 
 ## Exploratory statistics
@@ -94,15 +104,13 @@ my_label_colour <- "black"
 #| fig-width: !expr 3.5 * n_distinct(df$Age)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size)) +
-  lims(x = c(-5000, 5000), y = c(-2500, NA)) +
+  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   annotation_custom(rasterGrob(figure, 
-                               width = unit(1,"npc"), 
-                               height = unit(1,"npc")), 
-                               -Inf, Inf, -Inf, meninges_height) +
+                               width = unit(1, "npc"), 
+                               height = unit(1, "npc")), 
+                    -meninges_width, meninges_width,
+                    -meninges_bottom, meninges_height) +
   geom_point(alpha = my_alpha) +
-  geom_text(data = subset(df, Size > my_label_threshold), aes(label = TissueID),
-            size = my_label_size, colour = my_label_colour) +
-  labs(x = "X in mm", y = "Y in mm") +
   facet_grid(Sex ~ Age) +
   theme_classic()
 ```
@@ -120,11 +128,13 @@ my_high <- "red"
 #| fig-width: !expr 3.5 * n_distinct(df$Age)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-5000, 5000), y = c(-2500, NA)) +
+  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   annotation_custom(rasterGrob(figure, 
-                               width = unit(1,"npc"), 
-                               height = unit(1,"npc")), 
-                               -Inf, Inf, -Inf, 10100) +  geom_hex() +
+                               width = unit(1, "npc"), 
+                               height = unit(1, "npc")), 
+                    -meninges_width, meninges_width,
+                    -meninges_bottom, meninges_height) +
+  geom_hex() +
   scale_fill_gradient2(low = my_low, high = my_high) +
   labs(x = "X in mm", y = "Y in mm") +
   facet_grid(Sex ~ Age) +
@@ -139,11 +149,12 @@ ggplot(df, aes(x = X, y = Y)) +
 #| fig-width: 10
 #| fig-height: !expr 3 * n_distinct(df$Sex.Age)
 ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-5000, 5000), y = c(-2500, NA)) +
+  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   annotation_custom(rasterGrob(figure, 
-                               width = unit(1,"npc"), 
-                               height = unit(1,"npc")), 
-                               -Inf, Inf, -Inf, meninges_height) +
+                               width = unit(1, "npc"), 
+                               height = unit(1, "npc")), 
+                    -meninges_width, meninges_width,
+                    -meninges_bottom, meninges_height) +
   geom_hex() +
   scale_fill_gradient2(low = my_low, high = my_high) +
   labs(x = "X in mm", y = "Y in mm", fill = "Count") +
@@ -166,13 +177,14 @@ my_dir <- 1
 #| fig-width: !expr 3.5 * n_distinct(df$Age)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-5000, 5000), y = c(-2500, NA)) +
+  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   stat_density2d(aes(fill = after_stat(ndensity)),
                  geom = "raster", contour = FALSE) +
   annotation_custom(rasterGrob(figure, 
-                               width = unit(1,"npc"), 
-                               height = unit(1,"npc")), 
-                               -Inf, Inf, -Inf, meninges_height) +
+                               width = unit(1, "npc"), 
+                               height = unit(1, "npc")), 
+                    -meninges_width, meninges_width,
+                    -meninges_bottom, meninges_height) +
   scale_fill_distiller(palette = my_palette, direction = my_dir) +
   labs(x = "X in mm", y = "Y in mm", fill = "Density") +
   facet_grid(Sex ~ Age) +
@@ -185,13 +197,14 @@ ggplot(df, aes(x = X, y = Y)) +
 #| fig-width: !expr 3.5 * n_distinct(df$Age)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-5000, 5000), y = c(-2500, NA)) +
+  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   stat_density2d(aes(fill = after_stat(ndensity)),
                  geom = "raster", contour = FALSE) +
   annotation_custom(rasterGrob(figure, 
-                               width = unit(1,"npc"), 
-                               height = unit(1,"npc")), 
-                               -Inf, Inf, -Inf, meninges_height) +
+                               width = unit(1, "npc"), 
+                               height = unit(1, "npc")), 
+                    -meninges_width, meninges_width,
+                    -meninges_bottom, meninges_height) +
   geom_point(aes(colour = Phenotype, size = Size), alpha = my_alpha) +
   scale_fill_distiller(palette = 6, direction = my_dir) +
   labs(x = "X in mm", y = "Y in mm", fill = "Density") +
@@ -207,13 +220,14 @@ ggplot(df, aes(x = X, y = Y)) +
 #| fig-width: 10
 #| fig-height: !expr 3 * n_distinct(df$Sex.Age)
 ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-5000, 5000), y = c(-2500, NA)) +
+  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   stat_density2d(aes(fill = after_stat(ndensity)),
                  geom = "raster", contour = FALSE) +
   annotation_custom(rasterGrob(figure, 
-                               width = unit(1,"npc"), 
-                               height = unit(1,"npc")), 
-                               -Inf, Inf, -Inf, meninges_height) +
+                               width = unit(1, "npc"), 
+                               height = unit(1, "npc")), 
+                    -meninges_width, meninges_width,
+                    -meninges_bottom, meninges_height) +
   scale_fill_distiller(palette = my_palette, direction = my_dir) +
   labs(x = "X in mm", y = "Y in mm", fill = "Density") +
   facet_grid(Sex.Age ~ Phenotype) +
