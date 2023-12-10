@@ -27,7 +27,7 @@ In this report we profile the meninges of `r params$str` mice in terms of Tertia
 figure <- readPNG("data/opac_meninges.png")
 df <- read.csv("data/processed_data.csv")
 
-outlier_threshold <- 13000
+outlier_threshold <- 13
 levs <- c("F.young", "F.middle", "F.old",
           "M.young", "M.middle", "M.old")
 
@@ -35,14 +35,13 @@ df <- df %>%
   filter(Strain == params$str, Y < outlier_threshold) %>%
   mutate(Phenotype = as.factor(Phenotype),
          Age = factor(Age, c("young", "middle", "old")),
-         Sex.Age = factor(interaction(Sex, Age, sep = "."), levs),
-         Length = Length / 100)
+         Sex.Age = factor(interaction(Sex, Age, sep = "."), levs))
 ```
 
 ```{r}
 #| label: constants
 asp_ratio <- 0.92
-meninges_height <- 10100
+meninges_height <- 10.1
 meninges_bottom <- meninges_height / 4
 meninges_width <- (meninges_height + meninges_bottom) * asp_ratio / 2
 
@@ -63,7 +62,7 @@ df %>%
   summarise(Mice = n_distinct(TissueID),
             Structures = n(),
             MeanSize = round(mean(Size), 1),
-            MeanLength = round(mean(Length) / 100, 1),
+            MeanLength = round(mean(Length), 1),
             `Phenotype (1-2-3)` = paste(sum(Phenotype == 1), sum(Phenotype == 2), sum(Phenotype == 3), sep = "-"),
             `Sinus (0-90-180)` = paste(sum(Sinus == 0), sum(Sinus == 90), sum(Sinus == 180), sep = "-")) %>%
   knitr::kable()
@@ -111,6 +110,7 @@ ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size)) +
                     -meninges_width, meninges_width,
                     -meninges_bottom, meninges_height) +
   geom_point(alpha = my_alpha) +
+  labs(x = "X in mm", y = "Y in mm") +
   facet_grid(Sex ~ Age) +
   theme_classic()
 ```

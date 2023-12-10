@@ -54,8 +54,8 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">young</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">78</td>
-<td style="text-align: right;">82.9</td>
-<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8.3</td>
+<td style="text-align: right;">4.3</td>
 <td style="text-align: left;">77-1-0</td>
 <td style="text-align: left;">23-32-23</td>
 </tr>
@@ -64,8 +64,8 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">middle</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">53</td>
-<td style="text-align: right;">204.7</td>
-<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">20.5</td>
+<td style="text-align: right;">4.4</td>
 <td style="text-align: left;">46-7-0</td>
 <td style="text-align: left;">13-34-6</td>
 </tr>
@@ -74,8 +74,8 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">old</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">109</td>
-<td style="text-align: right;">142.8</td>
-<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">14.3</td>
+<td style="text-align: right;">4.4</td>
 <td style="text-align: left;">92-13-4</td>
 <td style="text-align: left;">5-63-41</td>
 </tr>
@@ -84,8 +84,8 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">young</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">87</td>
-<td style="text-align: right;">99.0</td>
-<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">9.9</td>
+<td style="text-align: right;">5.2</td>
 <td style="text-align: left;">86-1-0</td>
 <td style="text-align: left;">16-52-19</td>
 </tr>
@@ -94,8 +94,8 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">middle</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">145.1</td>
-<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">14.5</td>
+<td style="text-align: right;">4.8</td>
 <td style="text-align: left;">58-8-4</td>
 <td style="text-align: left;">18-40-12</td>
 </tr>
@@ -104,8 +104,8 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">old</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">45</td>
-<td style="text-align: right;">151.4</td>
-<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">15.1</td>
+<td style="text-align: right;">5.7</td>
 <td style="text-align: left;">31-6-8</td>
 <td style="text-align: left;">4-34-7</td>
 </tr>

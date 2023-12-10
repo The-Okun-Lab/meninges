@@ -18,7 +18,8 @@ df$Offset[df$Sinus == 180] <- df$Offset180[df$Sinus == 180]
 # Compute Euclidian coordinates of structures
 df <- df %>%
   mutate(Angle = Angle + Offset,
-         Size = Size / 100) %>%
+         Length = Length / 1000,
+         Size = Size / 1000) %>%
   mutate(X = Length * cos(Angle * pi / 180),
          Y = Length * sin(Angle * pi / 180)) %>%
   select(-starts_with("Offset"))

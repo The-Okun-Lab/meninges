@@ -8,8 +8,8 @@ for (strain in strains) {
   print(strain)
   
   quarto_render("meninges_report.qmd",
-                output_format = "html",
-                output_file = paste0(strain, ".html"),
+                output_format = "md",
+                output_file = paste0(strain, ".md"),
                 execute_params = list(str = strain))
   
 }
