@@ -5,6 +5,11 @@ library(dplyr)
 structures <- read.csv("data/structures.csv")
 angles <- read.csv("data/angles.csv")
 
+# Compute offset angle for every quadrant
+angles$Offset0 <- -angles$True0
+angles$Offset90 <- 90 - angles$True90
+angles$Offset180 <- 180 - angles$True180
+
 # Join structures and angles
 df <- structures %>%
   left_join(angles) %>%

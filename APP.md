@@ -17,7 +17,7 @@ density.
 
 ## Exploratory statistics
 
-The current analysis includes data on 442 lymphatic structures from 34
+The current analysis includes data on 497 lymphatic structures from 37
 mice, belonging to 1 strains, 3 age categories and 2 genders, for a
 total of 6 groups ([Table 1](#tbl-stats)).
 
@@ -52,12 +52,12 @@ sinus location, respectively.</caption>
 <tr class="odd">
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">young</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">78</td>
-<td style="text-align: right;">8.3</td>
-<td style="text-align: right;">4.3</td>
-<td style="text-align: left;">77-1-0</td>
-<td style="text-align: left;">23-32-23</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: right;">4.6</td>
+<td style="text-align: left;">97-1-1</td>
+<td style="text-align: left;">25-46-28</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
@@ -82,12 +82,12 @@ sinus location, respectively.</caption>
 <tr class="even">
 <td style="text-align: left;">M</td>
 <td style="text-align: left;">young</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">87</td>
-<td style="text-align: right;">9.9</td>
-<td style="text-align: right;">5.2</td>
-<td style="text-align: left;">86-1-0</td>
-<td style="text-align: left;">16-52-19</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">121</td>
+<td style="text-align: right;">10.6</td>
+<td style="text-align: right;">5.3</td>
+<td style="text-align: left;">119-2-0</td>
+<td style="text-align: left;">24-71-26</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">M</td>
@@ -152,3 +152,6 @@ alt="Figure 6: Density plot of TLSs around meninges. Each dot represents one st
 
 <img src="results/plots/APPfig-dens-pheno-1.png" id="fig-dens-pheno"
 alt="Figure 7: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
+
+<img src="results/plots/APPfig-ndens-pheno-1.png" id="fig-ndens-pheno"
+alt="Figure 8: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel normalised by group maximum. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
