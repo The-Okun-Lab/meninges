@@ -143,15 +143,18 @@ alt="Figure 4: 2d Binned plot of tertiary limphatic structures around meninges 
 [Figure 5](#fig-dens) shows the density of TLSs.
 
 <img src="results/plots/APPfig-dens-1.png" id="fig-dens"
-alt="Figure 5: Density plot of TLSs around meninges. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category." />
+alt="Figure 5: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
+
+<img src="results/plots/APPfig-ndens-1.png" id="fig-ndens"
+alt="Figure 6: Density plot of TLSs around meninges. Colour indicates the fraction of structures found in each pixel normalised by group maximum. Each panel corresponds to a mice group based on sex and age category." />
 
 <img src="results/plots/APPfig-loc-dens-1.png" id="fig-loc-dens"
-alt="Figure 6: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category." />
+alt="Figure 7: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category." />
 
 ### Density by phenotype
 
 <img src="results/plots/APPfig-dens-pheno-1.png" id="fig-dens-pheno"
-alt="Figure 7: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
+alt="Figure 8: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
 
 <img src="results/plots/APPfig-ndens-pheno-1.png" id="fig-ndens-pheno"
-alt="Figure 8: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel normalised by group maximum. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
+alt="Figure 9: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel normalised by group maximum. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />

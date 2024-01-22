@@ -173,7 +173,27 @@ my_dir <- 1
 
 ```{r}
 #| label: fig-dens
-#| fig-cap: Density plot of TLSs around meninges. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category.
+#| fig-cap: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes.
+#| fig-width: 10
+#| fig-height: !expr 3 * n_distinct(df$Sex)
+ggplot(df, aes(x = X, y = Y)) +
+  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
+  stat_density2d(aes(fill = after_stat(density)),
+                 geom = "raster", contour = FALSE) +
+  annotation_custom(rasterGrob(figure, 
+                               width = unit(1, "npc"), 
+                               height = unit(1, "npc")), 
+                    -meninges_width, meninges_width,
+                    -meninges_bottom, meninges_height) +
+  scale_fill_distiller(palette = my_palette, direction = my_dir) +
+  labs(x = "X in mm", y = "Y in mm", fill = "Density") +
+  facet_grid(Sex ~ Phenotype) +
+  theme_bw()
+```
+
+```{r}
+#| label: fig-ndens
+#| fig-cap: Density plot of TLSs around meninges. Colour indicates the fraction of structures found in each pixel normalised by group maximum. Each panel corresponds to a mice group based on sex and age category.
 #| fig-width: !expr 3.5 * n_distinct(df$Age)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
@@ -186,7 +206,7 @@ ggplot(df, aes(x = X, y = Y)) +
                     -meninges_width, meninges_width,
                     -meninges_bottom, meninges_height) +
   scale_fill_distiller(palette = my_palette, direction = my_dir) +
-  labs(x = "X in mm", y = "Y in mm", fill = "Density") +
+  labs(x = "X in mm", y = "Y in mm", fill = "NDensity") +
   facet_grid(Sex ~ Age) +
   theme_bw()
 ```
@@ -207,7 +227,7 @@ ggplot(df, aes(x = X, y = Y)) +
                     -meninges_bottom, meninges_height) +
   geom_point(aes(colour = Phenotype, size = Size), alpha = my_alpha) +
   scale_fill_distiller(palette = 6, direction = my_dir) +
-  labs(x = "X in mm", y = "Y in mm", fill = "Density") +
+  labs(x = "X in mm", y = "Y in mm", fill = "NDensity") +
   facet_grid(Sex ~ Age) +
   theme_bw()
 ```
@@ -218,7 +238,7 @@ ggplot(df, aes(x = X, y = Y)) +
 #| label: fig-dens-pheno
 #| fig-cap: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes.
 #| fig-width: 10
-#| fig-height: !expr 3 * n_distinct(df$Sex)
+#| fig-height: !expr 3 * n_distinct(df$Sex.Age)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   stat_density2d(aes(fill = after_stat(density)),
@@ -230,7 +250,7 @@ ggplot(df, aes(x = X, y = Y)) +
                     -meninges_bottom, meninges_height) +
   scale_fill_distiller(palette = my_palette, direction = my_dir) +
   labs(x = "X in mm", y = "Y in mm", fill = "Density") +
-  facet_grid(Sex ~ Phenotype) +
+  facet_grid(Sex.Age ~ Phenotype) +
   theme_bw()
 ```
 
@@ -238,7 +258,7 @@ ggplot(df, aes(x = X, y = Y)) +
 #| label: fig-ndens-pheno
 #| fig-cap: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel normalised by group maximum. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes.
 #| fig-width: 10
-#| fig-height: !expr 3 * n_distinct(df$Sex)
+#| fig-height: !expr 3 * n_distinct(df$Sex.Age)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   stat_density2d(aes(fill = after_stat(ndensity)),
@@ -249,7 +269,7 @@ ggplot(df, aes(x = X, y = Y)) +
                     -meninges_width, meninges_width,
                     -meninges_bottom, meninges_height) +
   scale_fill_distiller(palette = my_palette, direction = my_dir) +
-  labs(x = "X in mm", y = "Y in mm", fill = "Density") +
+  labs(x = "X in mm", y = "Y in mm", fill = "NDensity") +
   facet_grid(Sex.Age ~ Phenotype) +
   theme_bw()
 ```
