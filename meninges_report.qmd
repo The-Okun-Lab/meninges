@@ -130,7 +130,7 @@ main_plot <- ggplot(df, aes(x = X, y = Y)) +
                     -meninges_bottom, meninges_height) +
   geom_point(alpha = my_alpha, aes(colour = Phenotype, size = Size)) +
   geom_text(data = text_df, aes(label = Label),
-            x = -side_lim + 1.9, y = upper_lim + 0.3, size = 3) +
+            x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
   scale_colour_manual(values = my_cols) +
   labs(x = "X in mm", y = "Y in mm") +
   facet_grid(Sex ~ Age) +
@@ -161,7 +161,7 @@ ggplot(df, aes(x = X, y = Y)) +
                     -meninges_width, meninges_width,
                     -meninges_bottom, meninges_height) +
   geom_text(data = text_df, aes(label = Label),
-            x = -side_lim + 1.9, y = upper_lim + 0.3, size = 3) +
+            x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
   scale_fill_gradient2(low = my_low, high = my_high) +
   labs(x = "X in mm", y = "Y in mm") +
   facet_grid(Sex ~ Age) +
@@ -175,9 +175,10 @@ ggplot(df, aes(x = X, y = Y)) +
 #| fig-cap: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category.
 #| fig-width: !expr 3.5 * n_distinct(df$Age)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
-main_plot <- ggplot(df, aes(x = X, y = Y)) +
+ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   geom_hex(bins = bin_num) +
+  insets +
   annotation_custom(rasterGrob(figure, 
                                width = unit(1, "npc"), 
                                height = unit(1, "npc")), 
@@ -185,14 +186,12 @@ main_plot <- ggplot(df, aes(x = X, y = Y)) +
                     -meninges_bottom, meninges_height) +
   geom_point(aes(colour = Phenotype, size = Size), alpha = my_alpha) +
   geom_text(data = text_df, aes(label = Label),
-            x = -side_lim + 1.9, y = upper_lim + 0.3, size = 3) +
+            x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
   scale_colour_manual(values = my_cols) +
   scale_fill_gradient2(low = my_low, high = my_high) +
   labs(x = "X in mm", y = "Y in mm", fill = "Count") +
   facet_grid(Sex ~ Age) +
   theme_classic()
-
-main_plot + insets
 ```
 
 ## Extra visualisation
