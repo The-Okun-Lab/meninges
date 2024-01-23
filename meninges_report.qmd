@@ -185,6 +185,8 @@ ggplot(df, aes(x = X, y = Y)) +
                                height = unit(1, "npc")), 
                     -meninges_width, meninges_width,
                     -meninges_bottom, meninges_height) +
+  geom_point(aes(colour = Phenotype, size = Size), alpha = my_alpha) +
+  scale_colour_manual(values = my_cols) +
   scale_fill_gradient2(low = my_low, high = my_high) +
   labs(x = "X in mm", y = "Y in mm", fill = "Count") +
   facet_grid(Sex.Age ~ Phenotype) +
