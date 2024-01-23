@@ -61,8 +61,8 @@ df %>%
   group_by(Sex, Age) %>%
   summarise(Mice = n_distinct(TissueID),
             Structures = n(),
-            MeanSize = round(mean(Size), 1),
-            MeanLength = round(mean(Length), 1),
+            AvgDiameter = round(mean(Size), 1),
+            AvgDistance = round(mean(Length), 1),
             `Phenotype (1-2-3)` = paste(sum(Phenotype == 1), sum(Phenotype == 2), sum(Phenotype == 3), sep = "-"),
             `Sinus (0-90-180)` = paste(sum(Sinus == 0), sum(Sinus == 90), sum(Sinus == 180), sep = "-")) %>%
   knitr::kable()
@@ -72,15 +72,16 @@ df %>%
 
 ```{r}
 #| label: fig-bar
-#| fig-cap: Barplots of tertiary lyphatic structures distributed by (A) length and (B) size in mm.
-p1 <- ggplot(df, aes(x = Length)) +
-  geom_histogram(bins = 50) +
-  labs(x = "Length in mm", y = "TLS Count") +
+#| fig-cap: Barplots of tertiary lyphatic structures distributed by (A) diameter and (B) distance from confluence in mm.
+p1 <- ggplot(df, aes(x = Size)) +
+  geom_boxplot() +
+  labs(x = "TLS Diameter in mm", y = "TLS Count") +
   theme_classic()
 
-p2 <- ggplot(df, aes(x = Size)) +
+
+p2 <- ggplot(df, aes(x = Length)) +
   geom_histogram(bins = 50) +
-  labs(x = "Size in mm", y = "TLS Count") +
+  labs(x = "Distance from Confluence in mm", y = "TLS Count") +
   theme_classic()
 
 p1 / p2 +
@@ -91,6 +92,7 @@ p1 / p2 +
 
 ```{r}
 #| label: params
+my_cols <- c("blue", "orange", "magenta")
 my_alpha <- 2/3
 my_label_threshold <- max(df$Size) + 1
 my_label_size <- 2
@@ -110,6 +112,7 @@ ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size)) +
                     -meninges_width, meninges_width,
                     -meninges_bottom, meninges_height) +
   geom_point(alpha = my_alpha) +
+  scale_colour_manual(values = my_cols) +
   labs(x = "X in mm", y = "Y in mm") +
   facet_grid(Sex ~ Age) +
   theme_classic()
@@ -120,6 +123,7 @@ ggplot(df, aes(x = X, y = Y, colour = Phenotype, size = Size)) +
 ```{r}
 my_low <- "white"
 my_high <- "red"
+bin_num <- 4
 ```
 
 ```{r}
@@ -129,17 +133,42 @@ my_high <- "red"
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
+  geom_hex(bins = bin_num) +
   annotation_custom(rasterGrob(figure, 
                                width = unit(1, "npc"), 
                                height = unit(1, "npc")), 
                     -meninges_width, meninges_width,
                     -meninges_bottom, meninges_height) +
-  geom_hex() +
   scale_fill_gradient2(low = my_low, high = my_high) +
   labs(x = "X in mm", y = "Y in mm") +
   facet_grid(Sex ~ Age) +
   theme_classic()
 ```
+
+## Location and Distribution of structures
+
+```{r}
+#| label: fig-loc-dens
+#| fig-cap: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category.
+#| fig-width: !expr 3.5 * n_distinct(df$Age)
+#| fig-height: !expr 3.5 * n_distinct(df$Sex)
+ggplot(df, aes(x = X, y = Y)) +
+  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
+  geom_hex(bins = bin_num) +
+  annotation_custom(rasterGrob(figure, 
+                               width = unit(1, "npc"), 
+                               height = unit(1, "npc")), 
+                    -meninges_width, meninges_width,
+                    -meninges_bottom, meninges_height) +
+  geom_point(aes(colour = Phenotype, size = Size), alpha = my_alpha) +
+  scale_colour_manual(values = my_cols) +
+  scale_fill_gradient2(low = my_low, high = my_high) +
+  labs(x = "X in mm", y = "Y in mm", fill = "Count") +
+  facet_grid(Sex ~ Age) +
+  theme_classic()
+```
+
+## Extra visualisation
 
 ### Distribution by phenotype
 
@@ -150,19 +179,19 @@ ggplot(df, aes(x = X, y = Y)) +
 #| fig-height: !expr 3 * n_distinct(df$Sex.Age)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
+  geom_hex(bins = bin_num) +
   annotation_custom(rasterGrob(figure, 
                                width = unit(1, "npc"), 
                                height = unit(1, "npc")), 
                     -meninges_width, meninges_width,
                     -meninges_bottom, meninges_height) +
-  geom_hex() +
   scale_fill_gradient2(low = my_low, high = my_high) +
   labs(x = "X in mm", y = "Y in mm", fill = "Count") +
   facet_grid(Sex.Age ~ Phenotype) +
   theme_classic()
 ```
 
-## Density of structures
+### Density of structures
 
 @fig-dens shows the density of TLSs.
 
@@ -206,27 +235,6 @@ ggplot(df, aes(x = X, y = Y)) +
                     -meninges_width, meninges_width,
                     -meninges_bottom, meninges_height) +
   scale_fill_distiller(palette = my_palette, direction = my_dir) +
-  labs(x = "X in mm", y = "Y in mm", fill = "NDensity") +
-  facet_grid(Sex ~ Age) +
-  theme_bw()
-```
-
-```{r}
-#| label: fig-loc-dens
-#| fig-cap: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category.
-#| fig-width: !expr 3.5 * n_distinct(df$Age)
-#| fig-height: !expr 3.5 * n_distinct(df$Sex)
-ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
-  stat_density2d(aes(fill = after_stat(ndensity)),
-                 geom = "raster", contour = FALSE) +
-  annotation_custom(rasterGrob(figure, 
-                               width = unit(1, "npc"), 
-                               height = unit(1, "npc")), 
-                    -meninges_width, meninges_width,
-                    -meninges_bottom, meninges_height) +
-  geom_point(aes(colour = Phenotype, size = Size), alpha = my_alpha) +
-  scale_fill_distiller(palette = 6, direction = my_dir) +
   labs(x = "X in mm", y = "Y in mm", fill = "NDensity") +
   facet_grid(Sex ~ Age) +
   theme_bw()
