@@ -18,7 +18,9 @@ get_inset <- function(df, my_cols){
     geom_text(aes(label = paste0(Amount, "%")),
               position = position_stack(vjust = 0.5), size = 2) +
     theme_classic() +
-    theme(axis.title = element_blank(),
+    theme(panel.background = element_rect(fill = "transparent"),
+          plot.background = element_rect(fill = "transparent", colour = NA),
+          axis.title = element_blank(),
           axis.line = element_blank(),
           axis.text = element_blank(),
           axis.ticks = element_blank(),
