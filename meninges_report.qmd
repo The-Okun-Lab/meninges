@@ -78,7 +78,6 @@ p1 <- ggplot(df, aes(x = Size)) +
   labs(x = "TLS Diameter in mm", y = "TLS Count") +
   theme_classic()
 
-
 p2 <- ggplot(df, aes(x = Length)) +
   geom_histogram(bins = 50) +
   labs(x = "Distance from Confluence in mm", y = "TLS Count") +
@@ -98,7 +97,7 @@ text_df <- df %>%
   mutate(Label = paste(Count, "TLS from", Mice, "subjects"))
 
 insets <- df %>%
-  split(f = .$Sex.Age) %>%
+  split(f = .$Sex.Age, drop = TRUE) %>%
   purrr::map(~annotation_custom2(
     data = ., grob = ggplotGrob(get_inset(., my_cols)),
     xmin = -side_lim - 1, xmax = -side_lim + 3.5,
@@ -119,7 +118,7 @@ my_label_colour <- "black"
 ```{r}
 #| label: fig-loc
 #| fig-cap: Scatter plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype and labeled by sample. Each panel corresponds to a mice group based on sex and age category.
-#| fig-width: !expr 3.5 * n_distinct(df$Age)
+#| fig-width: !expr 5 + 2.75 * (n_distinct(df$Age) - 1)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
@@ -149,7 +148,7 @@ bin_num <- 4
 ```{r}
 #| label: fig-dist
 #| fig-cap: 2d Binned plot of tertiary limphatic structures around meninges. Colour indicates number of structures found in each hexagonal cell. Each panel corresponds to a mice group based on sex and age category.
-#| fig-width: !expr 3.5 * n_distinct(df$Age)
+#| fig-width: !expr 5 + 2.75 * (n_distinct(df$Age) - 1)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
@@ -172,7 +171,7 @@ ggplot(df, aes(x = X, y = Y)) +
 ```{r}
 #| label: fig-loc-dens
 #| fig-cap: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category.
-#| fig-width: !expr 3.5 * n_distinct(df$Age)
+#| fig-width: !expr 5 + 2.75 * (n_distinct(df$Age) - 1)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
@@ -230,8 +229,8 @@ my_dir <- 1
 ```{r}
 #| label: fig-dens
 #| fig-cap: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes.
-#| fig-width: 10
-#| fig-height: !expr 3 * n_distinct(df$Sex)
+#| fig-width: !expr 5 + 2.75 * (n_distinct(df$Age) - 1)
+#| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   stat_density2d(aes(fill = after_stat(density)),
@@ -252,7 +251,7 @@ ggplot(df, aes(x = X, y = Y)) +
 ```{r}
 #| label: fig-ndens
 #| fig-cap: Density plot of TLSs around meninges. Colour indicates the fraction of structures found in each pixel normalised by group maximum. Each panel corresponds to a mice group based on sex and age category.
-#| fig-width: !expr 3.5 * n_distinct(df$Age)
+#| fig-width: !expr 5 + 2.75 * (n_distinct(df$Age) - 1)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
