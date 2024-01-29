@@ -121,8 +121,9 @@ my_label_colour <- "black"
 #| fig-cap: Scatter plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype and labeled by sample. Each panel corresponds to a mice group based on sex and age category.
 #| fig-width: !expr 3.5 * n_distinct(df$Age)
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
-main_plot <- ggplot(df, aes(x = X, y = Y)) +
+ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
+  insets +
   annotation_custom(rasterGrob(figure, 
                                width = unit(1, "npc"), 
                                height = unit(1, "npc")), 
@@ -135,8 +136,6 @@ main_plot <- ggplot(df, aes(x = X, y = Y)) +
   labs(x = "X in mm", y = "Y in mm") +
   facet_grid(Sex ~ Age) +
   theme_classic()
-
-main_plot + insets
 ```
 
 ## Distribution of structures
