@@ -9,6 +9,7 @@ This repository contains a workflow to study the distribution of tertiary lympha
 - [APP](https://github.com/The-Okun-Lab/meninges/blob/master/APP.md)
 - [C57](https://github.com/RiboRings/meninges/blob/master/C57.md)
 - [Tau](https://github.com/The-Okun-Lab/meninges/blob/master/Tau.md)
+- [Tau without outlier](https://github.com/The-Okun-Lab/meninges/blob/master/Tau_without_outlier.md)
 - [WT](https://github.com/The-Okun-Lab/meninges/blob/master/WT.md)
 
 ## Contributions
