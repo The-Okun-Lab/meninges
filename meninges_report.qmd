@@ -14,8 +14,10 @@ toc: true
 source("globals.R")
 
 # Set chunks options
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE,
-                      fig.path = paste0("results/plots/", params$str))
+knitr::opts_chunk$set(
+  warning = FALSE, message = FALSE, echo = FALSE,
+  fig.path = paste0("results/plots/", params$str),
+  dev = "tiff")
 ```
 
 ## Overview
