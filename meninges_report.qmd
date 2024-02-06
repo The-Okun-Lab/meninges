@@ -31,12 +31,13 @@ figure <- readPNG("data/opac_meninges.png")
 df <- read.csv("data/processed_data.csv")
 
 outlier_threshold <- 13
-levs <- c("F.young", "F.middle", "F.old",
-          "M.young", "M.middle", "M.old")
+levs <- c("M.young", "M.middle", "M.old",
+          "F.young", "F.middle", "F.old")
 
 df <- df %>%
   filter(Strain == params$str, Y < outlier_threshold) %>%
   mutate(Phenotype = as.factor(Phenotype),
+         Sex = factor(Sex, c("M", "F")),
          Age = factor(Age, c("young", "middle", "old")),
          Sex.Age = factor(interaction(Sex, Age, sep = "."), levs))
 
