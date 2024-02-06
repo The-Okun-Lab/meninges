@@ -94,7 +94,7 @@ p1 / p2 +
 ```
 
 ```{r}
-my_cols <- c("steelblue", "orange", "red")
+my_cols <- c("#008ECE", "orange", "red")
 
 text_df <- df %>%
   group_by(Sex, Age) %>%
