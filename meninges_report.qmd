@@ -94,7 +94,7 @@ p1 / p2 +
 ```
 
 ```{r}
-my_cols <- c("blue", "orange", "magenta")
+my_cols <- c("steelblue", "orange", "red")
 
 text_df <- df %>%
   group_by(Sex, Age) %>%
@@ -147,7 +147,7 @@ ggplot(df, aes(x = X, y = Y)) +
 
 ```{r}
 my_low <- "white"
-my_high <- "red"
+my_high <- "black"
 bin_num <- 4
 ```
 
