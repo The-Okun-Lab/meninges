@@ -1,7 +1,7 @@
 library(quarto)
 library(rmarkdown)
 
-strains <- c("APP", "C57", "Dp1tyb", "Tau", "Tau sibling", "APOE3", "APOE4")
+strains <- c("APP", "C57", "DP1tyb", "Tau", "Tau sibling", "APOE3", "APOE4")
 
 for (strain in sort(strains)) {
   
