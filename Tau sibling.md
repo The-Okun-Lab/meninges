@@ -20,9 +20,9 @@ distribution and density.
 
 ## Exploratory statistics
 
-The current analysis includes data on 12 lymphatic structures from 2
-mice, belonging to 1 strains, 1 age categories and 1 genders, for a
-total of 1 groups ([Table 1](#tbl-stats)).
+The current analysis includes data on 36 lymphatic structures from 5
+mice, belonging to 1 strains, 1 age categories and 2 genders, for a
+total of 2 groups ([Table 1](#tbl-stats)).
 
 <table>
 <caption>Table 1: Basic statistics on the TLSs from mice meninges. Size
@@ -31,13 +31,13 @@ reported in terms of the number of structures per each phenotype or
 sinus location, respectively.</caption>
 <colgroup>
 <col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 5%" />
-<col style="width: 12%" />
+<col style="width: 4%" />
+<col style="width: 6%" />
 <col style="width: 13%" />
-<col style="width: 13%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 21%" />
 <col style="width: 20%" />
-<col style="width: 19%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -54,13 +54,23 @@ sinus location, respectively.</caption>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">middle</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">12.2</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: left;">11-1-1</td>
+<td style="text-align: left;">1-5-7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">old</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">13.2</td>
-<td style="text-align: right;">4.7</td>
-<td style="text-align: left;">10-1-1</td>
-<td style="text-align: left;">0-5-7</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: left;">19-3-1</td>
+<td style="text-align: left;">4-19-0</td>
 </tr>
 </tbody>
 </table>
