@@ -17,7 +17,7 @@ source("globals.R")
 knitr::opts_chunk$set(
   warning = FALSE, message = FALSE, echo = FALSE,
   fig.path = paste0("results/plots/", params$str),
-  dev = c("png", "tiff")
+  dev = c("png", "pdf")
 )
 ```
 
