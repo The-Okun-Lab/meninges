@@ -41,7 +41,7 @@ df <- df %>%
          Age = factor(Age, c("young", "middle", "old")),
          Sex.Age = factor(interaction(Sex, Age, sep = "."), levs))
 
-# df <- df[df$TissueID != "Tau F 2", ]
+df <- df[df$TissueID != "Tau F 2", ]
 ```
 
 ```{r}
