@@ -17,7 +17,7 @@ source("globals.R")
 knitr::opts_chunk$set(
   warning = FALSE, message = FALSE, echo = FALSE,
   fig.path = paste0("results/plots/", params$str),
-  dev = c("png", "pdf", "tiff")
+  dev = c("png", "pdf")
 )
 ```
 
@@ -41,7 +41,7 @@ df <- df %>%
          Age = factor(Age, c("young", "middle", "old")),
          Sex.Age = factor(interaction(Sex, Age, sep = "."), levs))
 
-# df <- df[df$TissueID != "Tau F 2", ]
+df <- df[df$TissueID != "Tau F 2", ]
 ```
 
 ```{r}

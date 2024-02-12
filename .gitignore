@@ -6,5 +6,3 @@ tmp*
 meninges_report.html
 meninges_report_files
 *.html
-*.pdf
-*.tiff

@@ -20,7 +20,7 @@ density.
 
 ## Exploratory statistics
 
-The current analysis includes data on 76 lymphatic structures from 8
+The current analysis includes data on 63 lymphatic structures from 12
 mice, belonging to 1 strains, 1 age categories and 2 genders, for a
 total of 2 groups ([Table 1](#tbl-stats)).
 
@@ -31,13 +31,13 @@ reported in terms of the number of structures per each phenotype or
 sinus location, respectively.</caption>
 <colgroup>
 <col style="width: 4%" />
-<col style="width: 8%" />
-<col style="width: 5%" />
-<col style="width: 12%" />
+<col style="width: 4%" />
+<col style="width: 6%" />
 <col style="width: 13%" />
-<col style="width: 13%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 21%" />
 <col style="width: 20%" />
-<col style="width: 19%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -54,7 +54,7 @@ sinus location, respectively.</caption>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">middle</td>
+<td style="text-align: left;">old</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">15.9</td>
@@ -64,13 +64,13 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
-<td style="text-align: left;">middle</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">70</td>
-<td style="text-align: right;">13.6</td>
-<td style="text-align: right;">4.8</td>
-<td style="text-align: left;">56-6-8</td>
-<td style="text-align: left;">26-33-11</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">9.3</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: left;">54-3-0</td>
+<td style="text-align: left;">19-33-5</td>
 </tr>
 </tbody>
 </table>

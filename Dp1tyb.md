@@ -13,14 +13,14 @@
 
 ## Overview
 
-In this report we profile the meninges of DP1tyb mice in terms of
+In this report we profile the meninges of Dp1tyb mice in terms of
 Tertiary Lymphatic Structures (TLSs). The following chapters provide
 insight to different aspects of the TLSs, such as their location,
 distribution and density.
 
 ## Exploratory statistics
 
-The current analysis includes data on 175 lymphatic structures from 27
+The current analysis includes data on 171 lymphatic structures from 33
 mice, belonging to 1 strains, 2 age categories and 2 genders, for a
 total of 4 groups ([Table 1](#tbl-stats)).
 
@@ -31,13 +31,13 @@ reported in terms of the number of structures per each phenotype or
 sinus location, respectively.</caption>
 <colgroup>
 <col style="width: 4%" />
-<col style="width: 7%" />
+<col style="width: 8%" />
 <col style="width: 5%" />
 <col style="width: 12%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 21%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
 <col style="width: 20%" />
+<col style="width: 19%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -64,33 +64,33 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">70</td>
-<td style="text-align: right;">11.0</td>
-<td style="text-align: right;">4.0</td>
-<td style="text-align: left;">65-2-3</td>
-<td style="text-align: left;">13-54-3</td>
+<td style="text-align: left;">middle</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: left;">57-2-2</td>
+<td style="text-align: left;">15-43-3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">young</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">56</td>
+<td style="text-align: right;">57</td>
 <td style="text-align: right;">8.0</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: left;">52-4-0</td>
-<td style="text-align: left;">22-22-12</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: left;">53-4-0</td>
+<td style="text-align: left;">23-22-12</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">11.4</td>
-<td style="text-align: right;">3.7</td>
-<td style="text-align: left;">21-6-0</td>
-<td style="text-align: left;">6-13-8</td>
+<td style="text-align: left;">middle</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: left;">25-6-0</td>
+<td style="text-align: left;">10-13-8</td>
 </tr>
 </tbody>
 </table>
@@ -103,46 +103,46 @@ sinus location, respectively.
 [Figure 1](#fig-bar) shows the distribution the TLSs distribute in terms
 of their length and size across all tissues.
 
-<img src="results/plots/DP1tybfig-bar-1.png" id="fig-bar"
+<img src="results/plots/Dp1tybfig-bar-1.png" id="fig-bar"
 alt="Figure 1: Barplots of tertiary lyphatic structures distributed by (A) diameter and (B) distance from confluence in mm." />
 
 ## Location of structures
 
-<img src="results/plots/DP1tybfig-loc-1.png" id="fig-loc"
+<img src="results/plots/Dp1tybfig-loc-1.png" id="fig-loc"
 alt="Figure 2: Scatter plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype and labeled by sample. Each panel corresponds to a mice group based on sex and age category." />
 
 ## Distribution of structures
 
-<img src="results/plots/DP1tybfig-dist-1.png" id="fig-dist"
+<img src="results/plots/Dp1tybfig-dist-1.png" id="fig-dist"
 alt="Figure 3: 2d Binned plot of tertiary limphatic structures around meninges. Colour indicates number of structures found in each hexagonal cell. Each panel corresponds to a mice group based on sex and age category." />
 
 ## Location and Distribution of structures
 
-<img src="results/plots/DP1tybfig-loc-dens-1.png" id="fig-loc-dens"
+<img src="results/plots/Dp1tybfig-loc-dens-1.png" id="fig-loc-dens"
 alt="Figure 4: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category." />
 
 ## Extra visualisation
 
 ### Distribution by phenotype
 
-<img src="results/plots/DP1tybfig-dist-pheno-1.png" id="fig-dist-pheno"
+<img src="results/plots/Dp1tybfig-dist-pheno-1.png" id="fig-dist-pheno"
 alt="Figure 5: 2d Binned plot of tertiary limphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates number of structures found in each hexagonal cell. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
 
 ### Density of structures
 
 [Figure 6](#fig-dens) shows the density of TLSs.
 
-<img src="results/plots/DP1tybfig-dens-1.png" id="fig-dens"
+<img src="results/plots/Dp1tybfig-dens-1.png" id="fig-dens"
 alt="Figure 6: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
 
-<img src="results/plots/DP1tybfig-ndens-1.png" id="fig-ndens"
+<img src="results/plots/Dp1tybfig-ndens-1.png" id="fig-ndens"
 alt="Figure 7: Density plot of TLSs around meninges. Colour indicates the fraction of structures found in each pixel normalised by group maximum. Each panel corresponds to a mice group based on sex and age category." />
 
 ### Density by phenotype
 
-<img src="results/plots/DP1tybfig-dens-pheno-1.png" id="fig-dens-pheno"
+<img src="results/plots/Dp1tybfig-dens-pheno-1.png" id="fig-dens-pheno"
 alt="Figure 8: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
 
-<img src="results/plots/DP1tybfig-ndens-pheno-1.png"
+<img src="results/plots/Dp1tybfig-ndens-pheno-1.png"
 id="fig-ndens-pheno"
 alt="Figure 9: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel normalised by group maximum. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
