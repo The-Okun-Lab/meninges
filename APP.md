@@ -123,39 +123,45 @@ sinus location, respectively.
 [Figure 1](#fig-bar) shows the distribution the TLSs distribute in terms
 of their length and size across all tissues.
 
-<embed src="results/plots/APPfig-bar-1.pdf" id="fig-bar" />
+<img src="results/plots/APPfig-bar-1.png" id="fig-bar"
+alt="Figure 1: Barplots of tertiary lyphatic structures distributed by (A) diameter and (B) distance from confluence in mm." />
 
 ## Location of structures
 
-<embed src="results/plots/APPfig-loc-1.pdf" id="fig-loc" />
+<img src="results/plots/APPfig-loc-1.png" id="fig-loc"
+alt="Figure 2: Scatter plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype and labeled by sample. Each panel corresponds to a mice group based on sex and age category." />
 
 ## Distribution of structures
 
-<embed src="results/plots/APPfig-dist-1.pdf" id="fig-dist" />
+<img src="results/plots/APPfig-dist-1.png" id="fig-dist"
+alt="Figure 3: 2d Binned plot of tertiary limphatic structures around meninges. Colour indicates number of structures found in each hexagonal cell. Each panel corresponds to a mice group based on sex and age category." />
 
 ## Location and Distribution of structures
 
-<embed src="results/plots/APPfig-loc-dens-1.pdf" id="fig-loc-dens" />
+<img src="results/plots/APPfig-loc-dens-1.png" id="fig-loc-dens"
+alt="Figure 4: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category." />
 
 ## Extra visualisation
 
 ### Distribution by phenotype
 
-<embed src="results/plots/APPfig-dist-pheno-1.pdf"
-id="fig-dist-pheno" />
+<img src="results/plots/APPfig-dist-pheno-1.png" id="fig-dist-pheno"
+alt="Figure 5: 2d Binned plot of tertiary limphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates number of structures found in each hexagonal cell. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
 
 ### Density of structures
 
 [Figure 6](#fig-dens) shows the density of TLSs.
 
-<embed src="results/plots/APPfig-dens-1.pdf" id="fig-dens" />
+<img src="results/plots/APPfig-dens-1.png" id="fig-dens"
+alt="Figure 6: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
 
-<embed src="results/plots/APPfig-ndens-1.pdf" id="fig-ndens" />
+<img src="results/plots/APPfig-ndens-1.png" id="fig-ndens"
+alt="Figure 7: Density plot of TLSs around meninges. Colour indicates the fraction of structures found in each pixel normalised by group maximum. Each panel corresponds to a mice group based on sex and age category." />
 
 ### Density by phenotype
 
-<embed src="results/plots/APPfig-dens-pheno-1.pdf"
-id="fig-dens-pheno" />
+<img src="results/plots/APPfig-dens-pheno-1.png" id="fig-dens-pheno"
+alt="Figure 8: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
 
-<embed src="results/plots/APPfig-ndens-pheno-1.pdf"
-id="fig-ndens-pheno" />
+<img src="results/plots/APPfig-ndens-pheno-1.png" id="fig-ndens-pheno"
+alt="Figure 9: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel normalised by group maximum. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
