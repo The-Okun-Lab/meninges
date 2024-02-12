@@ -65,12 +65,12 @@ sinus location, respectively.</caption>
 <tr class="even">
 <td style="text-align: left;">M</td>
 <td style="text-align: left;">middle</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">72</td>
-<td style="text-align: right;">14.1</td>
-<td style="text-align: right;">4.7</td>
-<td style="text-align: left;">60-8-4</td>
-<td style="text-align: left;">20-40-12</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">14.5</td>
+<td style="text-align: right;">4.8</td>
+<td style="text-align: left;">58-8-4</td>
+<td style="text-align: left;">18-40-12</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">M</td>
@@ -96,11 +96,11 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">middle</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">19.7</td>
-<td style="text-align: right;">4.2</td>
-<td style="text-align: left;">48-7-0</td>
-<td style="text-align: left;">13-36-6</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: left;">50-7-0</td>
+<td style="text-align: left;">15-36-6</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
