@@ -1,7 +1,7 @@
 ---
 title: "Meninges Report"
 params:
-    str: "APP"
+    str: "Dp1tyb"
 editor: visual
 toc: true
 ---
@@ -31,15 +31,42 @@ figure <- readPNG("data/opac_meninges.png")
 df <- read.csv("data/processed_data.csv")
 
 outlier_threshold <- 13
-levs <- c("M.1 month", "M.12 months", "M.18+ months",
-          "F.1 month", "F.12 months", "F.18+ months")
+
+df$Sex[df$Sex == "M"] <- "Males"
+df$Sex[df$Sex == "F"] <- "Females"
 
 df <- df %>%
   filter(Strain == params$str, Y < outlier_threshold) %>%
   mutate(Phenotype = as.factor(Phenotype),
-         Sex = factor(Sex, c("M", "F")),
-         Age = factor(Age, c("1 month", "12 months", "18+ months")),
-         Sex.Age = factor(interaction(Sex, Age, sep = "."), levs))
+         Sex = factor(Sex, c("Males", "Females")))
+
+if (params$str == "Dp1tyb") {
+  
+  df$Age[df$Age == "young"] <- "2 months"
+  df$Age[df$Age == "middle"] <- "10-15 months"
+  
+  levs <- c("Males.2 months", "Males.10-15 months",
+          "Females.2 months", "Females.10-15 months")
+  
+  df <- df %>%
+    mutate(Age = factor(Age, c("2 months", "10-15 months")),
+           Sex.Age = factor(interaction(Sex, Age, sep = "."), levs))
+  
+} else {
+  
+  df$Age[df$Age == "young"] <- "1 month"
+  df$Age[df$Age == "middle"] <- "12 months"
+  df$Age[df$Age == "old"] <- "18+ months"
+  
+  levs <- c("Males.1 month", "Males.12 months", "Males.18+ months",
+          "Females.1 month", "Females.12 months", "Females.18+ months")
+  
+  df <- df %>%
+    mutate(Age = factor(Age, c("1 month", "12 months", "18+ months")),
+           Sex.Age = factor(interaction(Sex, Age, sep = "."), levs))
+  
+}
+
 
 df <- df[df$TissueID != "Tau F 2", ]
 ```
