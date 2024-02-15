@@ -22,7 +22,7 @@ distribution and density.
 
 The current analysis includes data on 171 lymphatic structures from 33
 mice, belonging to 1 strains, 2 age categories and 2 genders, for a
-total of 4 groups ([Table 1](#tbl-stats)).
+total of 3 groups ([Table 1](#tbl-stats)).
 
 <table>
 <caption>Table 1: Basic statistics on the TLSs from mice meninges. Size
@@ -31,7 +31,7 @@ reported in terms of the number of structures per each phenotype or
 sinus location, respectively.</caption>
 <colgroup>
 <col style="width: 4%" />
-<col style="width: 8%" />
+<col style="width: 11%" />
 <col style="width: 5%" />
 <col style="width: 12%" />
 <col style="width: 13%" />
@@ -54,7 +54,7 @@ sinus location, respectively.</caption>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">young</td>
+<td style="text-align: left;">1 month</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">22</td>
 <td style="text-align: right;">8.7</td>
@@ -64,7 +64,7 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">middle</td>
+<td style="text-align: left;">12 months</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">61</td>
 <td style="text-align: right;">10.2</td>
@@ -74,23 +74,13 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">F</td>
-<td style="text-align: left;">young</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">57</td>
-<td style="text-align: right;">8.0</td>
-<td style="text-align: right;">2.9</td>
-<td style="text-align: left;">53-4-0</td>
-<td style="text-align: left;">23-22-12</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">F</td>
-<td style="text-align: left;">middle</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">31</td>
-<td style="text-align: right;">10.0</td>
-<td style="text-align: right;">3.2</td>
-<td style="text-align: left;">25-6-0</td>
-<td style="text-align: left;">10-13-8</td>
+<td style="text-align: left;">12 months</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">8.7</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: left;">78-10-0</td>
+<td style="text-align: left;">33-35-20</td>
 </tr>
 </tbody>
 </table>

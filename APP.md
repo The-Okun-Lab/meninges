@@ -31,13 +31,13 @@ reported in terms of the number of structures per each phenotype or
 sinus location, respectively.</caption>
 <colgroup>
 <col style="width: 4%" />
-<col style="width: 8%" />
+<col style="width: 12%" />
 <col style="width: 5%" />
 <col style="width: 12%" />
 <col style="width: 13%" />
 <col style="width: 13%" />
 <col style="width: 20%" />
-<col style="width: 19%" />
+<col style="width: 18%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -54,7 +54,7 @@ sinus location, respectively.</caption>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">young</td>
+<td style="text-align: left;">1 month</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">121</td>
 <td style="text-align: right;">10.6</td>
@@ -64,7 +64,7 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">middle</td>
+<td style="text-align: left;">12 months</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">70</td>
 <td style="text-align: right;">14.5</td>
@@ -74,7 +74,7 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">old</td>
+<td style="text-align: left;">18+ months</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">56</td>
 <td style="text-align: right;">15.3</td>
@@ -84,7 +84,7 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
-<td style="text-align: left;">young</td>
+<td style="text-align: left;">1 month</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">117</td>
 <td style="text-align: right;">9.1</td>
@@ -94,7 +94,7 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">F</td>
-<td style="text-align: left;">middle</td>
+<td style="text-align: left;">12 months</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">57</td>
 <td style="text-align: right;">19.0</td>
@@ -104,7 +104,7 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
-<td style="text-align: left;">old</td>
+<td style="text-align: left;">18+ months</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">109</td>
 <td style="text-align: right;">14.3</td>

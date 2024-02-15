@@ -31,7 +31,7 @@ reported in terms of the number of structures per each phenotype or
 sinus location, respectively.</caption>
 <colgroup>
 <col style="width: 4%" />
-<col style="width: 8%" />
+<col style="width: 11%" />
 <col style="width: 5%" />
 <col style="width: 12%" />
 <col style="width: 13%" />
@@ -54,7 +54,7 @@ sinus location, respectively.</caption>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">middle</td>
+<td style="text-align: left;">12 months</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">26</td>
 <td style="text-align: right;">10.4</td>
@@ -64,7 +64,7 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
-<td style="text-align: left;">middle</td>
+<td style="text-align: left;">12 months</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">78</td>
 <td style="text-align: right;">9.1</td>
