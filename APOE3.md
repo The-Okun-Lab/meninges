@@ -8,6 +8,7 @@
     structures](#location-and-distribution-of-structures)
 -   [Extra visualisation](#extra-visualisation)
     -   [Distribution by phenotype](#distribution-by-phenotype)
+-   [For plaques](#for-plaques)
     -   [Density of structures](#density-of-structures)
     -   [Density by phenotype](#density-by-phenotype)
 
@@ -30,14 +31,14 @@ and length are measured in mm, whereas phenotype and sinus location are
 reported in terms of the number of structures per each phenotype or
 sinus location, respectively.</caption>
 <colgroup>
-<col style="width: 4%" />
-<col style="width: 11%" />
+<col style="width: 8%" />
+<col style="width: 10%" />
 <col style="width: 5%" />
+<col style="width: 11%" />
 <col style="width: 12%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 20%" />
+<col style="width: 12%" />
 <col style="width: 19%" />
+<col style="width: 18%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -53,7 +54,7 @@ sinus location, respectively.</caption>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">M</td>
+<td style="text-align: left;">Males</td>
 <td style="text-align: left;">12 months</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">26</td>
@@ -63,7 +64,7 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">5-14-7</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">F</td>
+<td style="text-align: left;">Females</td>
 <td style="text-align: left;">12 months</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">78</td>
@@ -107,6 +108,10 @@ alt="Figure 4: Density plot of TLSs around meninges. Each dot represents one st
 
 <img src="results/plots/APOE3fig-dist-pheno-1.png" id="fig-dist-pheno"
 alt="Figure 5: 2d Binned plot of tertiary limphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates number of structures found in each hexagonal cell. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
+
+## For plaques
+
+![](results/plots/APOE3unnamed-chunk-13-1.png)
 
 ### Density of structures
 

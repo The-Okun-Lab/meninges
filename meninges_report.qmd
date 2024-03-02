@@ -165,7 +165,7 @@ ggplot(df, aes(x = X, y = Y)) +
   geom_text(data = text_df, aes(label = Label),
             x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
   scale_colour_manual(values = my_cols) +
-  labs(x = "X in mm", y = "Y in mm") +
+  labs(x = "Distance from Lambda (mm)", y = "Distance from Lambda (mm)") +
   facet_grid(Sex ~ Age) +
   theme_classic()
 ```
@@ -220,7 +220,7 @@ ggplot(df, aes(x = X, y = Y)) +
             x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
   scale_colour_manual(values = my_cols) +
   scale_fill_gradient2(low = my_low, high = my_high) +
-  labs(x = "X in mm", y = "Y in mm", fill = "Count") +
+  labs(x = "Distance from Lambda (mm)", y = "Distance from Lambda (mm)", fill = "Count") +
   facet_grid(Sex ~ Age) +
   theme_classic()
 ```
@@ -275,7 +275,7 @@ ggplot(df, aes(x = X, y = Y)) +
             x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
   scale_colour_manual(values = my_cols) +
   scale_fill_gradient2(low = my_low, high = my_high) +
-  labs(x = "X in mm", y = "Y in mm", fill = "Count") +
+  labs(x = "Distance from Lambda (mm)", y = "Distance from Lambda (mm)", fill = "Count") +
   facet_grid(Sex.Age ~ .) +
   theme_classic()
 ```
