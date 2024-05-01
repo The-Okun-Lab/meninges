@@ -29,5 +29,19 @@ df <- df %>%
          Y = Length * sin(Angle * pi / 180)) %>%
   select(-starts_with("Offset"))
 
+df <- df[df$TissueID != "Tau F 2", ]
+
+df$Sex.Age <- interaction(df$Sex, df$Age, sep = ".")
+
+df$SexText[df$Sex == "M"] <- "Males"
+df$SexText[df$Sex == "F"] <- "Females"
+
+df$AgeText[df$Strain == "Dp1tyb" & df$Age == "young"] <- "2 months"
+df$AgeText[df$Strain == "Dp1tyb" & df$Age == "middle"] <- "10-15 months"
+
+df$AgeText[df$Strain != "Dp1tyb" & df$Age == "young"] <- "1 month"
+df$AgeText[df$Strain != "Dp1tyb" & df$Age == "middle"] <- "12 months"
+df$AgeText[df$Strain != "Dp1tyb" & df$Age == "old"] <- "18+ months"
+
 # Store processed data as csv
 write.csv(df, file = "data/processed_data.csv", row.names = FALSE)

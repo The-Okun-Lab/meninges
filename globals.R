@@ -5,6 +5,31 @@ library(png)
 library(grid)
 library(purrr)
 
+outlier_threshold <- 13
+
+levs <- c("M.young", "M.middle", "M.old",
+          "F.young", "F.middle", "F.old")
+
+my_cols <- c("#008ECE", "orange", "red")
+
+my_alpha <- 2/3
+my_label_size <- 2
+my_label_colour <- "black"
+
+size_lims <- c(0, 330)
+size_breaks <- seq(0, 300, by = 100)
+col_low <- "white"
+col_high <- "black"
+bin_num <- 4
+
+my_palette <- 8
+my_dir <- 1
+
+asp_ratio <- 0.92
+meninges_height <- 10.1
+meninges_bottom <- meninges_height / 4
+meninges_width <- (meninges_height + meninges_bottom) * asp_ratio / 2
+
 get_inset <- function(df, my_cols){
   
   sub_df <- df %>%

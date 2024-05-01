@@ -30,45 +30,12 @@ In this report we profile the meninges of `r params$str` mice in terms of Tertia
 figure <- readPNG("data/opac_meninges.png")
 df <- read.csv("data/processed_data.csv")
 
-outlier_threshold <- 13
-
-df$Sex[df$Sex == "M"] <- "Males"
-df$Sex[df$Sex == "F"] <- "Females"
-
 df <- df %>%
   filter(Strain == params$str, Y < outlier_threshold) %>%
   mutate(Phenotype = as.factor(Phenotype),
-         Sex = factor(Sex, c("Males", "Females")))
-
-if (params$str == "Dp1tyb") {
-  
-  df$Age[df$Age == "young"] <- "2 months"
-  df$Age[df$Age == "middle"] <- "10-15 months"
-  
-  levs <- c("Males.2 months", "Males.10-15 months",
-          "Females.2 months", "Females.10-15 months")
-  
-  df <- df %>%
-    mutate(Age = factor(Age, c("2 months", "10-15 months")),
-           Sex.Age = factor(interaction(Sex, Age, sep = "."), levs))
-  
-} else {
-  
-  df$Age[df$Age == "young"] <- "1 month"
-  df$Age[df$Age == "middle"] <- "12 months"
-  df$Age[df$Age == "old"] <- "18+ months"
-  
-  levs <- c("Males.1 month", "Males.12 months", "Males.18+ months",
-          "Females.1 month", "Females.12 months", "Females.18+ months")
-  
-  df <- df %>%
-    mutate(Age = factor(Age, c("1 month", "12 months", "18+ months")),
-           Sex.Age = factor(interaction(Sex, Age, sep = "."), levs))
-  
-}
-
-
-df <- df[df$TissueID != "Tau F 2", ]
+         Sex = factor(Sex, c("M", "F")),
+         Age = factor(Age, c("young", "middle", "old")),
+         Sex.Age = factor(Sex.Age, levs))
 ```
 
 ```{r}
@@ -97,7 +64,8 @@ df %>%
             AvgDiameter = round(mean(Size), 1),
             AvgDistance = round(mean(Length), 1),
             `Phenotype (1-2-3)` = paste(sum(Phenotype == 1), sum(Phenotype == 2), sum(Phenotype == 3), sep = "-"),
-            `Sinus (0-90-180)` = paste(sum(Sinus == 0), sum(Sinus == 90), sum(Sinus == 180), sep = "-")) %>%
+            `Sinus (0-90-180)` = paste(sum(Sinus == 0), sum(Sinus == 90), sum(Sinus == 180), sep = "-"),
+            Desc = unique(AgeText)) %>%
   knitr::kable()
 ```
 
@@ -121,10 +89,9 @@ p1 / p2 +
 ```
 
 ```{r}
-my_cols <- c("#008ECE", "orange", "red")
-
+#| label: text-insets
 text_df <- df %>%
-  group_by(Sex, Age) %>%
+  group_by(SexText, AgeText) %>%
   summarise(Mice = n_distinct(TissueID),
             Count = n()) %>%
   mutate(Label = paste(Count, "TLS from", Mice, "subjects"))
@@ -138,15 +105,7 @@ insets <- df %>%
 )
 ```
 
-## Location of structures
-
-```{r}
-#| label: params
-my_alpha <- 2/3
-my_label_threshold <- max(df$Size) + 1
-my_label_size <- 2
-my_label_colour <- "black"
-```
+## Distribution of structures
 
 ```{r}
 #| label: fig-loc
@@ -165,18 +124,13 @@ ggplot(df, aes(x = X, y = Y)) +
   geom_text(data = text_df, aes(label = Label),
             x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
   scale_colour_manual(values = my_cols) +
+  scale_size_continuous(limits = size_lims, breaks = size_breaks) +
   labs(x = "Distance from Lambda (mm)", y = "Distance from Lambda (mm)") +
-  facet_grid(Sex ~ Age) +
+  facet_grid(SexText ~ AgeText) +
   theme_classic()
 ```
 
-## Distribution of structures
-
-```{r}
-my_low <- "white"
-my_high <- "black"
-bin_num <- 4
-```
+## Density of structures
 
 ```{r}
 #| label: fig-dist
@@ -193,13 +147,13 @@ ggplot(df, aes(x = X, y = Y)) +
                     -meninges_bottom, meninges_height) +
   geom_text(data = text_df, aes(label = Label),
             x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
-  scale_fill_gradient2(low = my_low, high = my_high, limits=c(0, 40)) +
+  scale_fill_gradient2(low = col_low, high = col_high) +
   labs(x = "X in mm", y = "Y in mm") +
-  facet_grid(Sex ~ Age) +
+  facet_grid(SexText ~ AgeText) +
   theme_classic()
 ```
 
-## Location and Distribution of structures
+## Distribution and Density of structures
 
 ```{r}
 #| label: fig-loc-dens
@@ -219,15 +173,14 @@ ggplot(df, aes(x = X, y = Y)) +
   geom_text(data = text_df, aes(label = Label),
             x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
   scale_colour_manual(values = my_cols) +
-  scale_fill_gradient2(low = my_low, high = my_high, limits=c(0, 40)) +
+  scale_size_continuous(limits = size_lims, breaks = size_breaks) +
+  scale_fill_gradient2(low = col_low, high = col_high) +
   labs(x = "Distance from Lambda (mm)", y = "Distance from Lambda (mm)", fill = "Count") +
-  facet_grid(Sex ~ Age) +
+  facet_grid(SexText ~ AgeText) +
   theme_classic()
 ```
 
-## Extra visualisation
-
-### Distribution by phenotype
+## Distribution by phenotype
 
 ```{r}
 #| label: fig-dist-pheno
@@ -244,133 +197,9 @@ ggplot(df, aes(x = X, y = Y)) +
                     -meninges_bottom, meninges_height) +
   geom_point(aes(colour = Phenotype, size = Size), alpha = my_alpha) +
   scale_colour_manual(values = my_cols) +
-  scale_fill_gradient2(low = my_low, high = my_high, limits=c(0, 40)) +
+  scale_size_continuous(limits = size_lims, breaks = size_breaks) +
+  scale_fill_gradient2(low = col_low, high = col_high) +
   labs(x = "X in mm", y = "Y in mm", fill = "Count") +
   facet_grid(Sex.Age ~ Phenotype) +
   theme_classic()
-```
-
-## For plaques
-
-```{r}
-#| fig-width: 5
-#| fig-height: !expr 3 * n_distinct(df$Sex.Age)
-
-text_df <- df %>%
-  group_by(Sex.Age) %>%
-  summarise(Mice = n_distinct(TissueID),
-            Count = n()) %>%
-  mutate(Label = paste(Count, "TLS from", Mice, "subjects"))
-
-ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
-  geom_hex(bins = bin_num) +
-  annotation_custom(rasterGrob(figure, 
-                               width = unit(1, "npc"), 
-                               height = unit(1, "npc")), 
-                    -meninges_width, meninges_width,
-                    -meninges_bottom, meninges_height) +
-  geom_point(aes(colour = Phenotype, size = Size), alpha = my_alpha) +
-  geom_text(data = text_df, aes(label = Label),
-            x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
-  scale_colour_manual(values = my_cols) +
-  scale_fill_gradient2(low = my_low, high = my_high, limits=c(0, 40)) +
-  labs(x = "Distance from Lambda (mm)", y = "Distance from Lambda (mm)", fill = "Count") +
-  facet_grid(Sex.Age ~ .) +
-  theme_classic()
-```
-
-### Density of structures
-
-@fig-dens shows the density of TLSs.
-
-```{r}
-my_palette <- 8
-my_dir <- 1
-```
-
-```{r}
-#| label: fig-dens
-#| fig-cap: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes.
-#| fig-width: !expr 5 + 2.75 * (n_distinct(df$Age) - 1)
-#| fig-height: !expr 3.5 * n_distinct(df$Sex)
-ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
-  stat_density2d(aes(fill = after_stat(density)),
-                 geom = "raster", contour = FALSE) +
-  annotation_custom(rasterGrob(figure, 
-                               width = unit(1, "npc"), 
-                               height = unit(1, "npc")), 
-                    -meninges_width, meninges_width,
-                    -meninges_bottom, meninges_height) +
-  geom_text(data = text_df, aes(label = Label),
-            x = -side_lim + 1.9, y = upper_lim + 0.3, size = 3) +
-  scale_fill_distiller(palette = my_palette, direction = my_dir) +
-  labs(x = "X in mm", y = "Y in mm", fill = "Density") +
-  facet_grid(Sex ~ Age) +
-  theme_bw()
-```
-
-```{r}
-#| label: fig-ndens
-#| fig-cap: Density plot of TLSs around meninges. Colour indicates the fraction of structures found in each pixel normalised by group maximum. Each panel corresponds to a mice group based on sex and age category.
-#| fig-width: !expr 5 + 2.75 * (n_distinct(df$Age) - 1)
-#| fig-height: !expr 3.5 * n_distinct(df$Sex)
-ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
-  stat_density2d(aes(fill = after_stat(ndensity)),
-                 geom = "raster", contour = FALSE) +
-  annotation_custom(rasterGrob(figure, 
-                               width = unit(1, "npc"), 
-                               height = unit(1, "npc")), 
-                    -meninges_width, meninges_width,
-                    -meninges_bottom, meninges_height) +
-  geom_text(data = text_df, aes(label = Label),
-            x = -side_lim + 1.9, y = upper_lim + 0.3, size = 3) +
-  scale_fill_distiller(palette = my_palette, direction = my_dir) +
-  labs(x = "X in mm", y = "Y in mm", fill = "NDensity") +
-  facet_grid(Sex ~ Age) +
-  theme_bw()
-```
-
-### Density by phenotype
-
-```{r}
-#| label: fig-dens-pheno
-#| fig-cap: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes.
-#| fig-width: 10
-#| fig-height: !expr 3 * n_distinct(df$Sex.Age)
-ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
-  stat_density2d(aes(fill = after_stat(density)),
-                 geom = "raster", contour = FALSE) +
-  annotation_custom(rasterGrob(figure, 
-                               width = unit(1, "npc"), 
-                               height = unit(1, "npc")), 
-                    -meninges_width, meninges_width,
-                    -meninges_bottom, meninges_height) +
-  scale_fill_distiller(palette = my_palette, direction = my_dir) +
-  labs(x = "X in mm", y = "Y in mm", fill = "Density") +
-  facet_grid(Sex.Age ~ Phenotype) +
-  theme_bw()
-```
-
-```{r}
-#| label: fig-ndens-pheno
-#| fig-cap: Density plot of tertiary lymphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates the fraction of structures found in each pixel normalised by group maximum. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes.
-#| fig-width: 10
-#| fig-height: !expr 3 * n_distinct(df$Sex.Age)
-ggplot(df, aes(x = X, y = Y)) +
-  lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
-  stat_density2d(aes(fill = after_stat(ndensity)),
-                 geom = "raster", contour = FALSE) +
-  annotation_custom(rasterGrob(figure, 
-                               width = unit(1, "npc"), 
-                               height = unit(1, "npc")), 
-                    -meninges_width, meninges_width,
-                    -meninges_bottom, meninges_height) +
-  scale_fill_distiller(palette = my_palette, direction = my_dir) +
-  labs(x = "X in mm", y = "Y in mm", fill = "NDensity") +
-  facet_grid(Sex.Age ~ Phenotype) +
-  theme_bw()
 ```
