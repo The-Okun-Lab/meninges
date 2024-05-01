@@ -24,7 +24,7 @@ for (i in 1:length(combs)) {
   
   message("Processing ", combs[[i]][[1]], " and ", combs[[i]][[2]])
   message("Selected age ", ages[[i]], " and sex ", sexes[[i]])
-  quarto_render("comp.qmd",
+  quarto_render("comparison.qmd",
                 output_format = extension,
                 output_file = paste0(combs[[i]][[1]], "_", combs[[i]][[2]], ".", extension),
                 execute_params = list(comb = combs[[i]], age = ages[[i]], sex = sexes[[i]]))
