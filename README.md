@@ -5,7 +5,7 @@
 This repository contains a workflow to study the distribution of tertiary lymphatic structures around rodent meninges. Currently, results are available for the following strains:
 
 - [APOE3](https://github.com/The-Okun-Lab/meninges/blob/master/APOE3.md)
-- [APOE3](https://github.com/The-Okun-Lab/meninges/blob/master/APOE4.md)
+- [APOE4](https://github.com/The-Okun-Lab/meninges/blob/master/APOE4.md)
 - [APP](https://github.com/The-Okun-Lab/meninges/blob/master/APP.md)
 - [C57](https://github.com/RiboRings/meninges/blob/master/C57.md)
 - [Tau](https://github.com/The-Okun-Lab/meninges/blob/master/Tau.md)
