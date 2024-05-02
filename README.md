@@ -4,13 +4,13 @@
 
 This repository contains a workflow to study the distribution of tertiary lymphatic structures around rodent meninges. Currently, results are available for the following strains:
 
-- [APOE3](https://github.com/The-Okun-Lab/meninges/blob/master/APOE3.md)
-- [APOE4](https://github.com/The-Okun-Lab/meninges/blob/master/APOE4.md)
-- [APP](https://github.com/The-Okun-Lab/meninges/blob/master/APP.md)
-- [C57](https://github.com/RiboRings/meninges/blob/master/C57.md)
-- [Tau](https://github.com/The-Okun-Lab/meninges/blob/master/Tau.md)
-- [Tau without outlier](https://github.com/The-Okun-Lab/meninges/blob/master/Tau_without_outlier.md)
-- [WT](https://github.com/The-Okun-Lab/meninges/blob/master/WT.md)
+- [APOE3](https://github.com/The-Okun-Lab/meninges/blob/master/reports/APOE3.md)
+- [APOE4](https://github.com/The-Okun-Lab/meninges/blob/master/reports/APOE4.md)
+- [APP](https://github.com/The-Okun-Lab/meninges/blob/master/reports/APP.md)
+- [C57](https://github.com/RiboRings/meninges/blob/master/reports/C57.md)
+- [Tau](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Tau.md)
+- [Tau without outlier](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Tau_without_outlier.md)
+- [WT](https://github.com/The-Okun-Lab/meninges/blob/master/reports/WT.md)
 
 ## Contributions
 
