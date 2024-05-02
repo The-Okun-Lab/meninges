@@ -16,7 +16,7 @@ source("globals.R")
 # Set chunks options
 knitr::opts_chunk$set(
   warning = FALSE, message = FALSE, echo = FALSE,
-  fig.path = paste0("results/plots/", params$str),
+  fig.path = paste0("plots/", params$str),
   dev = c("png", "pdf")
 )
 ```
