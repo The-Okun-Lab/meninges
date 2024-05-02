@@ -1,5 +1,5 @@
 ---
-title: "comparison"
+title: "Strain Comparison"
 params:
     comb: c("Tau", "C57")
     age: "old"
@@ -30,8 +30,9 @@ df <- read.csv("data/processed_data.csv")
 
 df <- df %>%
   filter(Strain %in% params$comb, Y < outlier_threshold,
-         Age %in% params$age, Sex %in% params$sex) %>%
-  mutate(Phenotype = as.factor(Phenotype))
+         Age == params$age, Sex %in% params$sex) %>%
+  mutate(Phenotype = as.factor(Phenotype),
+         Sex.Strain = as.factor(Sex.Strain))
 ```
 
 ```{r}
@@ -44,13 +45,13 @@ lower_lim <- min(-meninges_bottom, min(df$Y))
 ```{r}
 #| label: text-inset
 text_df <- df %>%
-  group_by(Strain) %>%
+  group_by(SexText, Strain) %>%
   summarise(Mice = n_distinct(TissueID),
             Count = n()) %>%
   mutate(Label = paste(Count, "TLS from", Mice, "subjects"))
 
 insets <- df %>%
-  split(f = .$Strain, drop = TRUE) %>%
+  split(f = .$Sex.Strain, drop = TRUE) %>%
   purrr::map(~annotation_custom2(
     data = ., grob = ggplotGrob(get_inset(., my_cols)),
     xmin = -side_lim - 1, xmax = -side_lim + 3.5,
@@ -62,7 +63,7 @@ insets <- df %>%
 #| label: fig-loc
 #| fig-cap: Scatter plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype and labeled by sample. Each panel corresponds to a mice group based on sex and age category.
 #| fig-width: !expr 5 + 2.75 * (n_distinct(df$Strain) - 1)
-#| fig-height: 4.5
+#| fig-height: !expr 1 + 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   insets +
@@ -77,7 +78,7 @@ ggplot(df, aes(x = X, y = Y)) +
   scale_colour_manual(values = my_cols) +
   scale_size_continuous(limits = size_lims, breaks = size_breaks) +
   labs(x = "X in mm", y = "Y in mm") +
-  facet_grid(. ~ Strain) +
+  facet_grid(SexText ~ Strain) +
   theme_classic()
 ```
 
@@ -85,7 +86,7 @@ ggplot(df, aes(x = X, y = Y)) +
 #| label: fig-loc-dens
 #| fig-cap: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category.
 #| fig-width: !expr 5 + 2.75 * (n_distinct(df$Strain) - 1)
-#| fig-height: 4.5
+#| fig-height: !expr 1 + 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
   geom_hex(bins = bin_num) +
@@ -102,7 +103,7 @@ ggplot(df, aes(x = X, y = Y)) +
   scale_size_continuous(limits = size_lims, breaks = size_breaks) +
   scale_fill_gradient2(low = col_low, high = col_high) +
   labs(x = "X in mm", y = "Y in mm", fill = "Count") +
-  facet_grid(. ~ Strain) +
+  facet_grid(SexText ~ Strain) +
   theme_classic()
 ```
 

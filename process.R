@@ -32,6 +32,7 @@ df <- df %>%
 df <- df[df$TissueID != "Tau F 2", ]
 
 df$Sex.Age <- interaction(df$Sex, df$Age, sep = ".")
+df$Sex.Strain <- interaction(df$Sex, df$Strain, sep = ".")
 
 df$SexText[df$Sex == "M"] <- "Males"
 df$SexText[df$Sex == "F"] <- "Females"
