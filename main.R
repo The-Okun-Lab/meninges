@@ -1,8 +1,12 @@
 library(quarto)
 library(rmarkdown)
 
+source("process.R")
+
 # output format options: c("md", "html", "pdf")
-extension <- "md"
+extension <- "html"
+
+quarto_render("index.qmd", output_format = extension)
 
 strains <- c("APP", "APOE3", "APOE4", "C57", "Dp1tyb", "Tau", "Tau sibling", "WT")
 
