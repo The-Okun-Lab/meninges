@@ -101,7 +101,7 @@ ggplot(df, aes(x = X, y = Y)) +
             x = -side_lim + 2.4, y = upper_lim + 0.3, size = 3) +
   scale_colour_manual(values = my_cols) +
   scale_size_continuous(limits = size_lims, breaks = size_breaks) +
-  scale_fill_gradient2(low = col_low, high = col_high) +
+  scale_fill_gradient2(low = col_low, high = col_high, limits = col_lims) +
   labs(x = "X in mm", y = "Y in mm", fill = "Count") +
   facet_grid(SexText ~ Strain) +
   theme_classic()

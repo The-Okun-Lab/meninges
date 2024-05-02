@@ -20,6 +20,7 @@ size_lims <- c(0, 330)
 size_breaks <- seq(0, 300, by = 100)
 col_low <- "white"
 col_high <- "black"
+col_lims <- c(0, 50)
 bin_num <- 4
 
 my_palette <- 8
