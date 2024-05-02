@@ -2,15 +2,25 @@
 
 ## Overview
 
-This repository contains a workflow to study the distribution of tertiary lymphatic structures around rodent meninges. Currently, results are available for the following strains:
+This repository contains a workflow to study the distribution of tertiary lymphatic structures in
+the meninges of rodents. Currently, results are available for the following strains:
 
 - [APOE3](https://github.com/The-Okun-Lab/meninges/blob/master/reports/APOE3.md)
 - [APOE4](https://github.com/The-Okun-Lab/meninges/blob/master/reports/APOE4.md)
 - [APP](https://github.com/The-Okun-Lab/meninges/blob/master/reports/APP.md)
 - [C57](https://github.com/RiboRings/meninges/blob/master/reports/C57.md)
+- [Dp1tyb](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Dp1tyb.md)
 - [Tau](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Tau.md)
-- [Tau without outlier](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Tau_without_outlier.md)
-- [WT](https://github.com/The-Okun-Lab/meninges/blob/master/reports/WT.md)
+- [Tau sibling](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Tau_sibling.md)
+
+Cross-strain comparisons were performed for the following combinations of strains:
+
+- [Dp1tyb and C57](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Dp1tyb_C57.md)
+- [Tau and C57](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Tau_C57.md)
+
+All reports and plots can be accessed from the
+[reports subdirectory](https://github.com/The-Okun-Lab/meninges/tree/master/reports) or clicking
+in one of the links above.
 
 ## Contributions
 
@@ -23,8 +33,8 @@ on the following steps:
 3. Modify or add new data to the `structures.csv` and `angles.csv` files
 4. Run `process.R` to obtain a new version of the processed data saved as
    `processed_data.csv`
-5. Run `main.R`. If a new strain was added, include its name in the list found
-   in this script
+5. Run `main.R`. If new strains were added, include their names in the list
+   found in this script
 
 ## File Architecture
 
@@ -34,6 +44,8 @@ on the following steps:
   that reside in the `data` subdirectory and returns `processed_data.csv` as
   output
 - `globals.R`: this script imports necessary packages and defines custom
-  functions used by the other scripts
+  constants and functions used by the other scripts
 - `meninges_report.qmd`: this Quarto notebook hosts the code that performs
-  the analysis and generates the plots
+  the within-strain analysis and generates the corresponding plots
+- `comparison.qmd`: this Quarto notebook hosts the code that performs the
+  between-strain analysis and generates the corresponding plots
