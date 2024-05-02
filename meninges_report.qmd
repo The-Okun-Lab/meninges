@@ -1,5 +1,5 @@
 ---
-title: "Meninges Report"
+title: "Whithin-Strain Analysis"
 params:
     str: "APP"
 editor: visual
@@ -39,12 +39,7 @@ df <- df %>%
 ```
 
 ```{r}
-#| label: constants
-asp_ratio <- 0.92
-meninges_height <- 10.1
-meninges_bottom <- meninges_height / 4
-meninges_width <- (meninges_height + meninges_bottom) * asp_ratio / 2
-
+#| label: plot-size
 upper_lim <- max(meninges_height, max(df$Y[df$Y < outlier_threshold]))
 side_lim <- max(meninges_width, max(abs(df$X)))
 lower_lim <- min(-meninges_bottom, min(df$Y))

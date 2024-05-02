@@ -1,5 +1,5 @@
 ---
-title: "Strain Comparison"
+title: "Between-Strain Analysis"
 params:
     comb: c("Tau", "C57")
     age: "old"
@@ -23,6 +23,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Overview
+
 ```{r}
 #| label: data
 figure <- readPNG("data/opac_meninges.png")
@@ -35,12 +37,38 @@ df <- df %>%
          Sex.Strain = as.factor(Sex.Strain))
 ```
 
+In this report we compare the distribution of Tertiary Lymphatic Structures
+(TLSs) in the meninges of mice from two different strains:
+`r paste(params$comb, collapse = " and ")`. Only
+`r paste(unique(df$SexText), collapse = " and ")` at a `r params$age` age were
+taken into consideration.
+
 ```{r}
 #| label: plot-size
 upper_lim <- max(meninges_height, max(df$Y[df$Y < outlier_threshold]))
 side_lim <- max(meninges_width, max(abs(df$X)))
 lower_lim <- min(-meninges_bottom, min(df$Y))
 ```
+
+## Exploratory statistics
+
+```{r}
+#| label: tbl-stats
+#| tbl-cap: Basic statistics on the TLSs from mice meninges. Size and length are measured in mm, whereas phenotype and sinus location are reported in terms of the number of structures per each phenotype or sinus location, respectively.
+df %>%
+  group_by(Sex, Strain) %>%
+  summarise(Mice = n_distinct(TissueID),
+            Structures = n(),
+            AvgDiameter = round(mean(Size), 1),
+            AvgDistance = round(mean(Length), 1),
+            `Phenotype (1-2-3)` = paste(sum(Phenotype == 1), sum(Phenotype == 2), sum(Phenotype == 3), sep = "-"),
+            `Sinus (0-90-180)` = paste(sum(Sinus == 0), sum(Sinus == 90), sum(Sinus == 180), sep = "-"),
+            Desc = unique(AgeText)) %>%
+  knitr::kable()
+```
+
+
+## Comparison of Distributions
 
 ```{r}
 #| label: text-inset
