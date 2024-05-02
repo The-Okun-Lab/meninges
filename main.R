@@ -8,7 +8,7 @@ extension <- "md"
 
 quarto_render("index.qmd", output_format = extension)
 
-strains <- c("APP", "APOE3", "APOE4", "C57", "Dp1tyb", "Tau", "Tau sibling", "WT")
+strains <- c("APP", "APOE3", "APOE4", "C57", "Dp1tyb", "Tau", "Tau sibling")
 
 for (strain in sort(strains)) {
   
@@ -20,7 +20,7 @@ for (strain in sort(strains)) {
   
 }
 
-combs <- list(c("Tau", "C57"), c("Dp1tyb", "WT"))
+combs <- list(c("Tau", "C57"), c("Dp1tyb", "Tau sibling"))
 ages <- list("old", "middle")
 sexes <- list("F", c("F", "M"))
 
