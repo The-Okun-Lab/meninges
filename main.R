@@ -4,7 +4,7 @@ library(rmarkdown)
 source("process.R")
 
 # output format options: c("md", "html", "pdf")
-extension <- "html"
+extension <- "md"
 
 quarto_render("index.qmd", output_format = extension)
 
