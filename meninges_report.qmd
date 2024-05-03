@@ -33,7 +33,7 @@ df <- read.csv("data/processed_data.csv")
 df <- df %>%
   filter(Strain == params$str, Y < outlier_threshold) %>%
   mutate(Phenotype = as.factor(Phenotype),
-         Sex = factor(Sex, c("M", "F")),
+         SexText = factor(SexText, c("Males", "Females")),
          Age = factor(Age, c("young", "middle", "old")),
          Sex.Age = factor(Sex.Age, levs))
 ```

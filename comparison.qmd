@@ -34,6 +34,7 @@ df <- df %>%
   filter(Strain %in% params$comb, Y < outlier_threshold,
          Age == params$age, Sex %in% params$sex) %>%
   mutate(Phenotype = as.factor(Phenotype),
+         SexText = factor(SexText, c("Males", "Females")),
          Sex.Strain = as.factor(Sex.Strain))
 ```
 
