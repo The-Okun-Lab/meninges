@@ -1,4 +1,4 @@
-# Meninges Report
+# Whithin-Strain Analysis
 
 -   [Overview](#overview)
 -   [Exploratory statistics](#exploratory-statistics)
@@ -52,17 +52,6 @@ sinus location, respectively.</caption>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">15.9</td>
-<td style="text-align: right;">5.7</td>
-<td style="text-align: left;">5-1-0</td>
-<td style="text-align: left;">0-4-2</td>
-<td style="text-align: left;">18+ months</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">old</td>
 <td style="text-align: right;">10</td>
@@ -71,6 +60,17 @@ sinus location, respectively.</caption>
 <td style="text-align: right;">4.2</td>
 <td style="text-align: left;">54-3-0</td>
 <td style="text-align: left;">19-33-5</td>
+<td style="text-align: left;">18+ months</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">15.9</td>
+<td style="text-align: right;">5.7</td>
+<td style="text-align: left;">5-1-0</td>
+<td style="text-align: left;">0-4-2</td>
 <td style="text-align: left;">18+ months</td>
 </tr>
 </tbody>

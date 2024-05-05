@@ -1,4 +1,4 @@
-# Meninges Report
+# Whithin-Strain Analysis
 
 -   [Overview](#overview)
 -   [Exploratory statistics](#exploratory-statistics)
@@ -52,28 +52,6 @@ sinus location, respectively.</caption>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">young</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">8.7</td>
-<td style="text-align: right;">5.0</td>
-<td style="text-align: left;">21-1-0</td>
-<td style="text-align: left;">7-11-4</td>
-<td style="text-align: left;">2 months</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">middle</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">61</td>
-<td style="text-align: right;">10.2</td>
-<td style="text-align: right;">3.9</td>
-<td style="text-align: left;">57-2-2</td>
-<td style="text-align: left;">15-43-3</td>
-<td style="text-align: left;">10-15 months</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">young</td>
 <td style="text-align: right;">6</td>
@@ -93,6 +71,28 @@ sinus location, respectively.</caption>
 <td style="text-align: right;">3.2</td>
 <td style="text-align: left;">25-6-0</td>
 <td style="text-align: left;">10-13-8</td>
+<td style="text-align: left;">10-15 months</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">young</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">8.7</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: left;">21-1-0</td>
+<td style="text-align: left;">7-11-4</td>
+<td style="text-align: left;">2 months</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">middle</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: left;">57-2-2</td>
+<td style="text-align: left;">15-43-3</td>
 <td style="text-align: left;">10-15 months</td>
 </tr>
 </tbody>

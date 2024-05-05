@@ -7,3 +7,4 @@ meninges_report.html
 *_files
 /.quarto/
 reports/.nojekyll
+/plots

@@ -8,7 +8,7 @@ extension <- "md"
 
 quarto_render("index.qmd", output_format = extension)
 
-strains <- c("APP", "APOE3", "APOE4", "C57", "Dp1tyb", "Tau", "Tau sibling")
+strains <- c("APP", "APOE3", "APOE4", "C57", "Dp1tyb", "Tau", "Tau_sibling")
 
 for (strain in sort(strains)) {
   

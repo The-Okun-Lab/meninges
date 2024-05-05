@@ -1,4 +1,4 @@
-# Meninges Report
+# Whithin-Strain Analysis
 
 -   [Overview](#overview)
 -   [Exploratory statistics](#exploratory-statistics)
@@ -52,39 +52,6 @@ sinus location, respectively.</caption>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">young</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">121</td>
-<td style="text-align: right;">10.6</td>
-<td style="text-align: right;">5.3</td>
-<td style="text-align: left;">119-2-0</td>
-<td style="text-align: left;">24-71-26</td>
-<td style="text-align: left;">1 month</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">middle</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">70</td>
-<td style="text-align: right;">14.5</td>
-<td style="text-align: right;">4.8</td>
-<td style="text-align: left;">58-8-4</td>
-<td style="text-align: left;">18-40-12</td>
-<td style="text-align: left;">12 months</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">15.3</td>
-<td style="text-align: right;">6.2</td>
-<td style="text-align: left;">41-7-8</td>
-<td style="text-align: left;">6-43-7</td>
-<td style="text-align: left;">18+ months</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">young</td>
 <td style="text-align: right;">8</td>
@@ -95,7 +62,7 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">33-52-32</td>
 <td style="text-align: left;">1 month</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">middle</td>
 <td style="text-align: right;">4</td>
@@ -106,7 +73,7 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">13-35-6</td>
 <td style="text-align: left;">12 months</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">old</td>
 <td style="text-align: right;">8</td>
@@ -115,6 +82,39 @@ sinus location, respectively.</caption>
 <td style="text-align: right;">4.4</td>
 <td style="text-align: left;">92-13-4</td>
 <td style="text-align: left;">5-63-41</td>
+<td style="text-align: left;">18+ months</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">young</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">121</td>
+<td style="text-align: right;">10.6</td>
+<td style="text-align: right;">5.3</td>
+<td style="text-align: left;">119-2-0</td>
+<td style="text-align: left;">24-71-26</td>
+<td style="text-align: left;">1 month</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">middle</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">14.5</td>
+<td style="text-align: right;">4.8</td>
+<td style="text-align: left;">58-8-4</td>
+<td style="text-align: left;">18-40-12</td>
+<td style="text-align: left;">12 months</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">15.3</td>
+<td style="text-align: right;">6.2</td>
+<td style="text-align: left;">41-7-8</td>
+<td style="text-align: left;">6-43-7</td>
 <td style="text-align: left;">18+ months</td>
 </tr>
 </tbody>
