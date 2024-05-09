@@ -8,7 +8,7 @@
 
 In this report we compare the distribution of Tertiary Lymphatic
 Structures (TLSs) in the meninges of mice from two different strains:
-Dp1tyb and C57. Only Males and Females at a middle age were taken into
+Dp1Tyb and C57. Only Males and Females at a middle age were taken into
 consideration.
 
 ## Exploratory statistics
@@ -56,7 +56,7 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
-<td style="text-align: left;">Dp1tyb</td>
+<td style="text-align: left;">Dp1Tyb</td>
 <td style="text-align: right;">12</td>
 <td style="text-align: right;">31</td>
 <td style="text-align: right;">10.0</td>
@@ -78,7 +78,7 @@ sinus location, respectively.</caption>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M</td>
-<td style="text-align: left;">Dp1tyb</td>
+<td style="text-align: left;">Dp1Tyb</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">61</td>
 <td style="text-align: right;">10.2</td>
@@ -97,8 +97,8 @@ sinus location, respectively.
 
 ## Comparison of Distributions
 
-<img src="plots/Dp1tyb_C57fig-loc-1.png" id="fig-loc"
+<img src="plots/Dp1Tyb_C57fig-loc-1.png" id="fig-loc"
 alt="Figure 1: Scatter plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype and labeled by sample. Each panel corresponds to a mice group based on sex and age category." />
 
-<img src="plots/Dp1tyb_C57fig-loc-dens-1.png" id="fig-loc-dens"
+<img src="plots/Dp1Tyb_C57fig-loc-dens-1.png" id="fig-loc-dens"
 alt="Figure 2: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category." />

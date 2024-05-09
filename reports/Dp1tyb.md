@@ -10,7 +10,7 @@
 
 ## Overview
 
-In this report we profile the meninges of Dp1tyb mice in terms of
+In this report we profile the meninges of Dp1Tyb mice in terms of
 Tertiary Lymphatic Structures (TLSs). The following chapters provide
 insight to different aspects of the TLSs, such as their location,
 distribution and density.
@@ -106,25 +106,25 @@ sinus location, respectively.
 [Figure 1](#fig-bar) shows the distribution the TLSs distribute in terms
 of their length and size across all tissues.
 
-<img src="plots/Dp1tybfig-bar-1.png" id="fig-bar"
+<img src="plots/Dp1Tybfig-bar-1.png" id="fig-bar"
 alt="Figure 1: Barplots of tertiary lyphatic structures distributed by (A) diameter and (B) distance from confluence in mm." />
 
 ## Distribution of structures
 
-<img src="plots/Dp1tybfig-loc-1.png" id="fig-loc"
+<img src="plots/Dp1Tybfig-loc-1.png" id="fig-loc"
 alt="Figure 2: Scatter plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype and labeled by sample. Each panel corresponds to a mice group based on sex and age category." />
 
 ## Density of structures
 
-<img src="plots/Dp1tybfig-dist-1.png" id="fig-dist"
+<img src="plots/Dp1Tybfig-dist-1.png" id="fig-dist"
 alt="Figure 3: 2d Binned plot of tertiary limphatic structures around meninges. Colour indicates number of structures found in each hexagonal cell. Each panel corresponds to a mice group based on sex and age category." />
 
 ## Distribution and Density of structures
 
-<img src="plots/Dp1tybfig-loc-dens-1.png" id="fig-loc-dens"
+<img src="plots/Dp1Tybfig-loc-dens-1.png" id="fig-loc-dens"
 alt="Figure 4: Density plot of TLSs around meninges. Each dot represents one structure, sized by dimension, coloured by phenotype. Colour indicates the fraction of structures found in each pixel. Each panel corresponds to a mice group based on sex and age category." />
 
 ## Distribution by phenotype
 
-<img src="plots/Dp1tybfig-dist-pheno-1.png" id="fig-dist-pheno"
+<img src="plots/Dp1Tybfig-dist-pheno-1.png" id="fig-dist-pheno"
 alt="Figure 5: 2d Binned plot of tertiary limphatic structures around meninges by phenotype (1, 2 or 3). Colour indicates number of structures found in each hexagonal cell. Rows correspond to a mice group based on sex and age category, whereas columns represent phenotypes." />
