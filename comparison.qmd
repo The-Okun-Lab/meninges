@@ -38,11 +38,7 @@ df <- df %>%
          Sex.Strain = as.factor(Sex.Strain))
 ```
 
-In this report we compare the distribution of Tertiary Lymphatic Structures
-(TLSs) in the meninges of mice from two different strains:
-`r paste(params$comb, collapse = " and ")`. Only
-`r paste(unique(df$SexText), collapse = " and ")` at a `r params$age` age were
-taken into consideration.
+In this report we compare the distribution of Tertiary Lymphatic Structures (TLSs) in the meninges of mice from two different strains: `r paste(params$comb, collapse = " and ")`. Only `r paste(unique(df$SexText), collapse = " and ")` at a `r params$age` age were taken into consideration.
 
 ```{r}
 #| label: plot-size
@@ -67,7 +63,6 @@ df %>%
             Desc = unique(AgeText)) %>%
   knitr::kable()
 ```
-
 
 ## Comparison of Distributions
 
@@ -135,4 +130,3 @@ ggplot(df, aes(x = X, y = Y)) +
   facet_grid(SexText ~ Strain) +
   theme_classic()
 ```
-
