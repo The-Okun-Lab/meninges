@@ -35,5 +35,3 @@ for (i in 1:length(combs)) {
 
 }
 
-system("rm -Rf reports/plots")
-system("mv plots reports")
