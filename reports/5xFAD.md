@@ -17,7 +17,7 @@ distribution and density.
 
 ## Exploratory statistics
 
-The current analysis includes data on 689 lymphatic structures from 34
+The current analysis includes data on 691 lymphatic structures from 36
 mice, belonging to 1 strains, 3 age categories and 2 genders, for a
 total of 6 groups ([Table 1](#tbl-stats)).
 
@@ -87,12 +87,12 @@ sinus location, respectively.</caption>
 <tr class="even">
 <td style="text-align: left;">M</td>
 <td style="text-align: left;">young</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">7.8</td>
-<td style="text-align: right;">4.3</td>
-<td style="text-align: left;">15-0-0</td>
-<td style="text-align: left;">3-10-2</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">9.1</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: left;">17-0-0</td>
+<td style="text-align: left;">2-12-3</td>
 <td style="text-align: left;">1 month</td>
 </tr>
 <tr class="odd">
