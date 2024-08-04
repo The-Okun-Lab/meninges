@@ -2,9 +2,9 @@ library(quarto)
 library(rmarkdown)
 
 # Give path to file with structures
-structures_file <- "data/structures.csv"
+structures_file <- "data/structures will.csv"
 # Give path to file with angles
-angles_file <- "data/angles.csv"
+angles_file <- "data/angles will.csv"
 
 # Process structures and angles
 source("process.R")
@@ -17,7 +17,7 @@ quarto_render("index.qmd", output_format = extension)
 ### ANALYSE STRAIN ###
 
 # Select strains to analyse
-strains <- c("APP", "APOE3", "APOE4", "C57", "Dp1Tyb", "Tau", "Tau_sibling", "5xFAD")
+strains <- c("WT", "Gtfti")
 
 # Produce single-strain reports
 for (strain in sort(strains)) {
@@ -35,11 +35,11 @@ for (strain in sort(strains)) {
 ### COMPARE STRAINS ###
 
 # List combinations of strains
-combs <- list(c("Tau", "C57"), c("Dp1Tyb", "C57"))
+combs <- list(c("WT", "Gtfti"))
 # List one age for each combination
-ages <- list("old", "middle")
+ages <- list( "young", "old", "middle")
 # List one sex for each combination
-sexes <- list("F", c("F", "M"))
+sexes <- list("M", "F", c("F", "M"))
 
 # Produce double-strain reports
 for (i in 1:length(combs)) {
