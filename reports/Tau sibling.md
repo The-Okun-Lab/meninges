@@ -17,9 +17,15 @@ distribution and density.
 
 ## Exploratory statistics
 
+<<<<<<< Updated upstream:reports/Tau sibling.md
 The current analysis includes data on 36 lymphatic structures from 5
 mice, belonging to 1 strains, 1 age categories and 2 genders, for a
 total of 2 groups ([Table 1](#tbl-stats)).
+=======
+The current analysis includes data on 592 lymphatic structures from 36
+mice, belonging to 1 strains, 3 age categories and 2 genders, for a
+total of 6 groups ([Table 1](#tbl-stats)).
+>>>>>>> Stashed changes:reports/5xFAD.md
 
 <table>
 <caption>Table 1: Basic statistics on the TLSs from mice meninges. Size
@@ -52,6 +58,7 @@ sinus location, respectively.</caption>
 </thead>
 <tbody>
 <tr class="odd">
+<<<<<<< Updated upstream:reports/Tau sibling.md
 <td style="text-align: left;">M</td>
 <td style="text-align: left;">old</td>
 <td style="text-align: right;">3</td>
@@ -60,17 +67,58 @@ sinus location, respectively.</caption>
 <td style="text-align: right;">4.3</td>
 <td style="text-align: left;">11-1-1</td>
 <td style="text-align: left;">1-5-7</td>
+=======
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">young</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">9.5</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: left;">22-1-0</td>
+<td style="text-align: left;">6-8-9</td>
+<td style="text-align: left;">1 month</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">middle</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">169</td>
+<td style="text-align: right;">14.5</td>
+<td style="text-align: right;">4.8</td>
+<td style="text-align: left;">124-25-20</td>
+<td style="text-align: left;">38-117-14</td>
+<td style="text-align: left;">12 months</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">14.1</td>
+<td style="text-align: right;">5.3</td>
+<td style="text-align: left;">55-13-7</td>
+<td style="text-align: left;">20-45-10</td>
+>>>>>>> Stashed changes:reports/5xFAD.md
 <td style="text-align: left;">18+ months</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">old</td>
+<<<<<<< Updated upstream:reports/Tau sibling.md
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">23</td>
 <td style="text-align: right;">10.2</td>
 <td style="text-align: right;">6.4</td>
 <td style="text-align: left;">19-3-1</td>
 <td style="text-align: left;">4-19-0</td>
+=======
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">174</td>
+<td style="text-align: right;">20.7</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: left;">128-31-15</td>
+<td style="text-align: left;">40-88-46</td>
+>>>>>>> Stashed changes:reports/5xFAD.md
 <td style="text-align: left;">18+ months</td>
 </tr>
 </tbody>
