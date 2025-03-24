@@ -134,7 +134,8 @@ ggplot(df, aes(x = X, y = Y)) +
 #| fig-height: !expr 3.5 * n_distinct(df$Sex)
 ggplot(df, aes(x = X, y = Y)) +
   lims(x = c(-side_lim, side_lim), y = c(lower_lim, upper_lim)) +
-  geom_hex(bins = bin_num) +
+  geom_bin2d(binwidth = c(bin_width, bin_width), 
+             origin = c(-bin_width / 2, -bin_width / 2)) +
   annotation_custom(rasterGrob(figure, 
                                width = unit(1, "npc"), 
                                height = unit(1, "npc")), 
