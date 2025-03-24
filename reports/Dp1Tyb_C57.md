@@ -46,12 +46,12 @@ sinus location, respectively.</caption>
 <tr class="odd">
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">C57</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">272</td>
-<td style="text-align: right;">14.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">247</td>
+<td style="text-align: right;">14.6</td>
 <td style="text-align: right;">3.6</td>
-<td style="text-align: left;">234-25-13</td>
-<td style="text-align: left;">65-136-71</td>
+<td style="text-align: left;">214-21-12</td>
+<td style="text-align: left;">60-121-66</td>
 <td style="text-align: left;">12 months</td>
 </tr>
 <tr class="even">

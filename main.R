@@ -2,7 +2,7 @@ library(quarto)
 library(rmarkdown)
 
 # Give path to file with structures
-structures_file <- "data/structures Amit2.csv"
+structures_file <- "data/structures.csv"
 # Give path to file with angles
 angles_file <- "data/angles.csv"
 
@@ -17,7 +17,7 @@ quarto_render("index.qmd", output_format = extension)
 ### ANALYSE STRAIN ###
 
 # Select strains to analyse
-strains <- c("C57")
+strains <- c("APP", "APOE3", "APOE4", "C57", "Dp1Tyb", "Tau", "Tau_sibling", "5xFAD")
 
 # Produce single-strain reports
 for (strain in sort(strains)) {

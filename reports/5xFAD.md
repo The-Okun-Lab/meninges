@@ -17,7 +17,7 @@ distribution and density.
 
 ## Exploratory statistics
 
-The current analysis includes data on 592 lymphatic structures from 36
+The current analysis includes data on 691 lymphatic structures from 36
 mice, belonging to 1 strains, 3 age categories and 2 genders, for a
 total of 6 groups ([Table 1](#tbl-stats)).
 
@@ -54,12 +54,12 @@ sinus location, respectively.</caption>
 <tr class="odd">
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">young</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">9.5</td>
-<td style="text-align: right;">3.6</td>
-<td style="text-align: left;">22-1-0</td>
-<td style="text-align: left;">6-8-9</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">6.8</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: left;">13-1-0</td>
+<td style="text-align: left;">5-4-5</td>
 <td style="text-align: left;">1 month</td>
 </tr>
 <tr class="even">
@@ -77,11 +77,11 @@ sinus location, respectively.</caption>
 <td style="text-align: left;">F</td>
 <td style="text-align: left;">old</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">75</td>
-<td style="text-align: right;">14.1</td>
-<td style="text-align: right;">5.3</td>
-<td style="text-align: left;">55-13-7</td>
-<td style="text-align: left;">20-45-10</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">18.4</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: left;">49-13-7</td>
+<td style="text-align: left;">17-38-14</td>
 <td style="text-align: left;">18+ months</td>
 </tr>
 <tr class="even">
@@ -109,12 +109,12 @@ sinus location, respectively.</caption>
 <tr class="even">
 <td style="text-align: left;">M</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">174</td>
-<td style="text-align: right;">20.7</td>
-<td style="text-align: right;">4.1</td>
-<td style="text-align: left;">128-31-15</td>
-<td style="text-align: left;">40-88-46</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">288</td>
+<td style="text-align: right;">20.3</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: left;">220-42-26</td>
+<td style="text-align: left;">72-152-64</td>
 <td style="text-align: left;">18+ months</td>
 </tr>
 </tbody>
