@@ -22,6 +22,7 @@ col_low <- "white"
 col_high <- "black"
 col_lims <- c(0, 50)
 bin_num <- 4
+bin_width <- 3
 
 my_palette <- 8
 my_dir <- 1

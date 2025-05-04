@@ -9,13 +9,13 @@ the meninges of rodents. Currently, results are available for the following stra
 - [APOE4](https://github.com/The-Okun-Lab/meninges/blob/master/reports/APOE4.md)
 - [APP](https://github.com/The-Okun-Lab/meninges/blob/master/reports/APP.md)
 - [C57](https://github.com/RiboRings/meninges/blob/master/reports/C57.md)
-- [Dp1tyb](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Dp1tyb.md)
+- [Dp1Tyb](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Dp1Tyb.md)
 - [Tau](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Tau.md)
 - [Tau sibling](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Tau_sibling.md)
 
 Cross-strain comparisons were performed for the following combinations of strains:
 
-- [Dp1tyb and C57](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Dp1tyb_C57.md)
+- [Dp1Tyb and C57](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Dp1Tyb_C57.md)
 - [Tau and C57](https://github.com/The-Okun-Lab/meninges/blob/master/reports/Tau_C57.md)
 
 All reports and plots can be accessed from the

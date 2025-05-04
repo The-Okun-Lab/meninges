@@ -2,8 +2,8 @@
 library(dplyr)
 
 # Load data
-structures <- read.csv("data/structures.csv")
-angles <- read.csv("data/angles.csv")
+structures <- read.csv(structures_file)
+angles <- read.csv(angles_file)
 
 # Compute offset angle for every quadrant
 angles$Offset0 <- -angles$True0
