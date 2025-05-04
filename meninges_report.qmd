@@ -1,7 +1,7 @@
 ---
 title: "Whithin-Strain Analysis"
 params:
-    str: "Tau"
+    str: "C57"
 editor: visual
 toc: true
 ---
