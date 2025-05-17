@@ -1,5 +1,7 @@
 # Meninges
 
+[![DOI](https://zenodo.org/badge/708837985.svg)](https://doi.org/10.5281/zenodo.15453825)
+
 ## Overview
 
 This repository contains a workflow to study the distribution of tertiary lymphatic structures in
